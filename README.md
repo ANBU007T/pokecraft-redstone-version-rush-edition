@@ -76,12 +76,32 @@ Click **Code ➔ Download ZIP** on GitHub. Extract the folder and double-click *
 
 ---
 
-## 🛠️ Emulator Creator & Developer Attribution
-* **Developer**: **ANBU007T**
-* **GitHub**: [https://github.com/ANBU007T](https://github.com/ANBU007T)
-* **Role**: PokéCRAFT Emulator Architecture, Desktop Engine, Fast-Boot Pipeline & Platform Distribution
+---
+
+## 👥 Credits & Attribution
+
+### 🌟 Original Game Creator
+* **Original Game**: **Pokémon Redstone** (Minecraft Steve in Pokémon FireRed)
+* **Creator / Developer**: **MozeTech**
+* **X (Twitter)**: [@mozetech](https://x.com/mozetech)
+* *Huge respect and gratitude to MozeTech for creating this brilliant and creative fan crossover game.*
+
+### 🛠️ Emulator & Platform Distribution (v1.0.1 Update)
+* **Emulator Creator**: **ANBU007T**
+* **GitHub**: [@ANBU007T](https://github.com/ANBU007T)
+* **Contributions**:
+  * Standalone offline Windows PC desktop distribution architecture
+  * Fast-boot streaming engine (asynchronous sprite loading in < 1 second)
+  * Dedicated 6-slot save state system with visual screenshots
+  * Full offline Electron packaging and clean dependency optimization
+  * Git LFS integration for GitHub repository hosting
+
+### 🎮 Original Franchises
+* **Pokémon**: © Nintendo / Creatures Inc. / GAME FREAK inc.
+* **Minecraft**: © Mojang Studios / Microsoft Corporation
 
 ---
 
 ## ⚖️ Legal Notice & Disclaimer
-This is an unofficial fan-made project created for educational and preservation purposes. Not affiliated with, endorsed by, or sponsored by Nintendo, Game Freak, The Pokémon Company, Mojang, or Microsoft. Pokémon and Minecraft are registered trademarks of their respective owners.
+This is an unofficial fan-made project created for educational and preservation purposes. Free to play. Not affiliated with, endorsed by, or sponsored by Nintendo, Game Freak, Creatures, The Pokémon Company, Mojang, or Microsoft. Pokémon and Minecraft are registered trademarks of their respective owners.
+
