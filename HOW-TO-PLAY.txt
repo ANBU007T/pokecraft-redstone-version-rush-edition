@@ -3,7 +3,7 @@
 ========================================================
 
 🎮 HOW TO PLAY:
-1. Double-click "Play-PokeCraft.bat" (or "PokeCraft-Game\PokeCraft.exe").
+1. Double-click "PokeCraft.exe" (or "Play-PokeCraft.bat").
 2. The game starts instantly in offline desktop mode!
 3. No installation, no internet, and no browser required.
 

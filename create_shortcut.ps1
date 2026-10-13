@@ -4,9 +4,17 @@ $desktop = [Environment]::GetFolderPath('Desktop')
 Get-ChildItem $desktop -Filter "*Poke*.lnk" -ErrorAction SilentlyContinue | Remove-Item -Force -ErrorAction SilentlyContinue
 Get-ChildItem $desktop -Filter "*craft*.lnk" -ErrorAction SilentlyContinue | Where-Object { $_.Name -notlike ".*" } | Remove-Item -Force -ErrorAction SilentlyContinue
 
-$exePath = (Resolve-Path "$PSScriptRoot\PokeCraft-Game\PokeCraft.exe").Path
-$workDir = (Resolve-Path "$PSScriptRoot\PokeCraft-Game").Path
-$iconPath = (Resolve-Path "$PSScriptRoot\PokeCraft-Game\resources\app\PokeCraft.ico").Path
+$exePath = if (Test-Path "$PSScriptRoot\PokeCraft.exe") {
+    (Resolve-Path "$PSScriptRoot\PokeCraft.exe").Path
+} else {
+    (Resolve-Path "$PSScriptRoot\PokeCraft-Game\PokeCraft.exe").Path
+}
+$workDir = Split-Path -Parent $exePath
+$iconPath = if (Test-Path "$PSScriptRoot\pokecraft.ico") {
+    (Resolve-Path "$PSScriptRoot\pokecraft.ico").Path
+} else {
+    (Resolve-Path "$PSScriptRoot\PokeCraft-Game\resources\app\PokeCraft.ico").Path
+}
 
 # Use explicit Unicode codepoint 0x00E9 for 'é' to guarantee perfect display across all Windows languages
 $eAcute = [char]0x00E9

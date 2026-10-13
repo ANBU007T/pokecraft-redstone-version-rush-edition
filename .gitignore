@@ -21,3 +21,9 @@ yarn-error.log*
 .idea/
 *.suo
 *.user
+
+# Runtime Save Data
+save_data/
+**/save_data/
+PokeCraft-Game/resources/save_data/
+

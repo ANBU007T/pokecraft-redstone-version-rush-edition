@@ -1,4 +1,8 @@
 # Git Large File Storage (LFS)
-# Tracks PokeCraft.exe (246.4 MB) and large executables beyond GitHub's 100 MB limit
-*.exe filter=lfs diff=lfs merge=lfs -text
+# Only track large Electron binaries (246 MB) beyond GitHub's 100 MB limit
+PokeCraft-Game/PokeCraft.exe filter=lfs diff=lfs merge=lfs -text
 *.zip filter=lfs diff=lfs merge=lfs -text
+
+# Direct native executable (~1.0 MB) is committed directly to Git for 100% offline instant play
+/PokeCraft.exe !filter !diff !merge -text
+/WebView2Loader.dll !filter !diff !merge -text

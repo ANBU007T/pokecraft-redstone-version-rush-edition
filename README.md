@@ -14,33 +14,33 @@ An authentic standalone PC Desktop release of **PokéCRAFT** (Pokémon Redstone)
 
 | Launch Method | Target | Description |
 | :--- | :--- | :--- |
-| **Option A (Recommended)** | **`Play-PokeCraft.bat`** | 1-Click game launcher at repository root. Starts immediately in < 1 second! |
-| **Option B (Direct Executable)** | **`PokeCraft-Game/PokeCraft.exe`** | Direct offline standalone executable with hardware-accelerated 60 FPS graphics. |
-| **Option C (Run from Source)** | `npm start` | Run directly using Node.js / Electron in `PokeCraft-Game/resources/app`. |
+| **Option A (Instant Play)** | **`PokeCraft.exe`** | Direct native executable right at the root (~1.0 MB). Starts in ~0.2s with zero lag! |
+| **Option B (1-Click Launcher)** | **`Play-PokeCraft.bat`** | 1-Click game launcher at repository root. Auto-starts the game! |
+| **Option C (Desktop Shortcut)** | **`Create-Desktop-Shortcut.bat`** | Places a custom PokéCRAFT game icon directly onto your Windows Desktop. |
+| **Option D (Legacy Electron)** | **`PokeCraft-Game/PokeCraft.exe`** | Optional standalone Electron build with embedded Chromium runtime. |
 
 ---
 
-## 📥 Cloning & Downloading
+## 📥 Instant Play (Zero Setup)
 
-Because `PokeCraft.exe` is **246.4 MB**, this repository uses **Git LFS (Large File Storage)** to track the executable without exceeding GitHub's file size limit.
+Anyone on any Windows 10 / 11 PC can clone or download this repository and play immediately:
 
-### Option 1: Clone with Git LFS (Recommended)
-Make sure you have [Git LFS](https://git-lfs.com/) installed:
+### Option 1: Direct Play via Git Clone
 ```bash
-git lfs install
 git clone https://github.com/ANBU007T/pokecraft-redstone-version-pc.git
 ```
-*(If cloned without Git LFS, simply run `git lfs pull` inside the repository folder to download the executable).*
+Open the folder and double-click **`PokeCraft.exe`** (or **`Play-PokeCraft.bat`**)!
 
-### Option 2: Download Release ZIP
-Head to [Releases](https://github.com/ANBU007T/pokecraft-redstone-version-pc/releases) and download the pre-packaged zip archive.
+### Option 2: Download GitHub ZIP
+Click **Code ➔ Download ZIP** on GitHub. Extract the folder and double-click **`PokeCraft.exe`**!
+*(Zero dependencies needed: no Node.js, no Python, no Git LFS required for direct play).*
 
 ---
 
 ## 🎮 How to Play
 
 1. Open the repository folder.
-2. Double-click **`Play-PokeCraft.bat`** (or open `PokeCraft-Game/PokeCraft.exe`).
+2. Double-click **`PokeCraft.exe`** or **`Play-PokeCraft.bat`**.
 3. *(Optional)* Run **`Create-Desktop-Shortcut.bat`** to place a custom PokéCRAFT shortcut on your Windows Desktop.
 4. The game starts **instantly in under 1 second** in offline desktop mode! Zero installation, zero internet, and no browser required.
 

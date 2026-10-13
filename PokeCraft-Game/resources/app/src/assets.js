@@ -84,16 +84,33 @@ export async function loadAssets(onProgress) {
   for (const [k, f] of Object.entries((items.wither && items.wither.images) || {})) jobs.push(loadImageR(MC + f).then((img) => { A.mc[k] = img; }));
   // FireRed's people for the rooms (tools/build_world.py writes one strip of 16-px frames per sheet)
   for (const g of Object.keys(world.npcSheets || {})) jobs.push(loadImage(`assets/sprites/npc/${g}.png`).then((img) => { A.npc[g] = img; }).catch(() => {}));
-  const starters = new Set(['bulbasaur', 'charmander', 'squirtle', 'pikachu', 'pidgey', 'rattata']);
+  const starters = new Set(['BULBASAUR', 'CHARMANDER', 'SQUIRTLE', 'PIKACHU', 'PIDGEY', 'RATTATA']);
   for (const [key, sp] of Object.entries(dex.species)) {
     const f = sp.file;
-    A.mon[key] = {};
+    const monObj = {};
+    A.mon[key] = monObj;
     const set = { front: `assets/mon/${f}_front.png`, back: `assets/mon/${f}_back.png`, frontShiny: `assets/mon/${f}_front_shiny.png`,
       backShiny: `assets/mon/${f}_back_shiny.png`, icon: `assets/mon/${f}_icon.png`, ow: `assets/sprites/ow_${f}.png`, owShiny: `assets/sprites/ow_${f}_shiny.png` };
-    const isStarter = starters.has(key);
-    for (const [k, url] of Object.entries(set)) {
-      const p = loadImage(url).then((img) => { A.mon[key][k] = img; }).catch(() => {});
-      if (isStarter) jobs.push(p);
+    if (starters.has(key)) {
+      for (const [k, url] of Object.entries(set)) jobs.push(loadImage(url).then((img) => { monObj[k] = img; }).catch(() => {}));
+    } else {
+      for (const [k, url] of Object.entries(set)) {
+        let loadedImg = null;
+        Object.defineProperty(monObj, k, {
+          get() {
+            if (!loadedImg) {
+              loadedImg = new Image();
+              loadedImg.src = url;
+            }
+            return loadedImg;
+          },
+          set(v) {
+            loadedImg = v;
+          },
+          configurable: true,
+          enumerable: true
+        });
+      }
     }
   }
   // FireRed's Hall of Fame layout (tools/build_ender_dragon.py)
@@ -137,9 +154,26 @@ function addWorldDex(extra) {
     if (A.dex.species[key]) continue;
     A.dex.species[key] = sp;
     const f = sp.file;
-    A.mon[key] = {};
+    const monObj = {};
+    A.mon[key] = monObj;
     const set = { front: `assets/mon/${f}_front.png`, back: `assets/mon/${f}_back.png`, frontShiny: `assets/mon/${f}_front_shiny.png`,
       backShiny: `assets/mon/${f}_back_shiny.png`, icon: `assets/mon/${f}_icon.png`, ow: `assets/sprites/ow_${f}.png`, owShiny: `assets/sprites/ow_${f}_shiny.png` };
-    for (const [k, url] of Object.entries(set)) loadImage(url).then((img) => { A.mon[key][k] = img; }).catch(() => {});
+    for (const [k, url] of Object.entries(set)) {
+      let loadedImg = null;
+      Object.defineProperty(monObj, k, {
+        get() {
+          if (!loadedImg) {
+            loadedImg = new Image();
+            loadedImg.src = url;
+          }
+          return loadedImg;
+        },
+        set(v) {
+          loadedImg = v;
+        },
+        configurable: true,
+        enumerable: true
+      });
+    }
   }
 }
