@@ -1,0 +1,8 @@
+{
+  "name": "pokecraft",
+  "version": "1.0.1",
+  "description": "PokéCRAFT - Pokemon Redstone PC Edition v1.0.1",
+  "main": "main.electron.js",
+  "author": "PokéCRAFT",
+  "license": "MIT"
+}

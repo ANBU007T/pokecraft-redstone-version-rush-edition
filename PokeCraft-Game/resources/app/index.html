@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>PokéCRAFT - Pokemon Redstone PC Edition</title>
+<link rel="icon" href="assets/ui/favicon.png">
+<link rel="stylesheet" href="sponsor.css">
+<link rel="stylesheet" href="settings.css">
+
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; height: 100%; background: #151515; overflow: hidden; font-family: ui-monospace, Menlo, monospace; }
+  body { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  canvas { display: block; image-rendering: pixelated; image-rendering: crisp-edges; background: #000; cursor: default; }
+  #hint { color: #8c8c8c; font-size: 12px; letter-spacing: .03em; margin-top: 12px; text-align: center; line-height: 1.75; user-select: none; max-width: 980px; }
+  #hint b { color: #e6e6e6; font-weight: 600; }
+  #legal { color: #6a6a6a; font-size: 10.5px; margin-top: 8px; text-align: center; line-height: 1.6; max-width: 760px; padding: 0 16px; user-select: none; }
+  /* email sign-up for the next game: one quiet line above the notice, a small form only when asked for */
+  #signup { margin-bottom: 7px; font-size: 11.5px; color: #8c8c8c; user-select: text; -webkit-user-select: text; }
+  #signup button { font: inherit; }
+  #signup-open { background: none; border: 0; padding: 0; color: #c4c4c4; cursor: pointer; text-decoration: underline dotted; text-underline-offset: 3px; }
+  #signup-open:hover, #signup-open:focus-visible { color: #ffffff; }
+  #signup.open .lead, #signup.done .lead { display: none; }
+  #signup-form { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; justify-content: center; }
+  #signup-form[hidden] { display: none; }
+  #signup-form input[type=email] { width: 210px; max-width: 60vw; padding: 5px 8px; border: 1px solid #3a3a3a; border-radius: 6px; background: #222222; color: #e6e6e6; font: 12px ui-monospace, Menlo, monospace; user-select: text; -webkit-user-select: text; }
+  #signup-form input[type=email]:focus { outline: none; border-color: #7a7a7a; }
+  #signup-form button { padding: 6px 10px; border: 0; border-radius: 6px; background: #3a3a3a; color: #e6e6e6; font-weight: 600; cursor: pointer; }
+  #signup-form button:disabled { opacity: .6; cursor: default; }
+  #signup-form .note { flex-basis: 100%; font-size: 10.5px; color: #6a6a6a; }
+  #signup .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+  #signup-msg:empty { display: none; }
+  #signup-msg { display: block; margin-top: 4px; color: #b5b5b5; }   /* the touch pad covers it; the title screen carries the notice */
+</style>
+</head>
+<body>
+  <!-- PokéCRAFT PC Menu Bar -->
+  <header id="emulator-menu-bar">
+    <div class="emu-menu-left">
+      <div class="emu-brand">
+        <img src="assets/ui/favicon.png" width="16" height="16" alt="Icon" style="image-rendering: pixelated;">
+        <span>PokéCRAFT</span>
+      </div>
+
+      <!-- File Menu -->
+      <div class="emu-dropdown">
+        <button class="emu-menu-btn" type="button">File ▾</button>
+        <div class="emu-dropdown-content">
+          <button id="menu-quick-save" type="button"><span>💾 Quick Save State</span><span class="emu-shortcut-hint">F5</span></button>
+          <button id="menu-quick-load" type="button"><span>📂 Quick Load State</span><span class="emu-shortcut-hint">F8</span></button>
+          <div class="emu-dropdown-divider"></div>
+          <button id="menu-save-slots" type="button"><span>🗂️ Save Slots Manager...</span><span class="emu-shortcut-hint">F6</span></button>
+          <label class="emu-dropdown-content-label" style="display:flex; justify-content:space-between; align-items:center; padding:6px 14px; color:#e2e8f0; cursor:pointer; font-size:12px; font-weight:500;">
+            <span>📥 Import Save (.sav)</span>
+            <input type="file" id="menu-import-file" accept=".sav,.json" style="display:none;">
+          </label>
+          <div class="emu-dropdown-divider"></div>
+          <button id="menu-reset-game" type="button"><span>🔄 Restart Game</span><span class="emu-shortcut-hint">Ctrl+R</span></button>
+          <button id="menu-exit-game" type="button"><span>🚪 Exit to Desktop</span><span class="emu-shortcut-hint">Alt+F4</span></button>
+        </div>
+      </div>
+
+      <!-- Controls Menu -->
+      <div class="emu-dropdown">
+        <button class="emu-menu-btn" type="button">Controls ▾</button>
+        <div class="emu-dropdown-content">
+          <button id="menu-remap-keys" type="button"><span>🎮 Remap Control Keys...</span><span class="emu-shortcut-hint">F2</span></button>
+          <button id="menu-reset-keys" type="button"><span>🔄 Reset Default Controls</span></button>
+        </div>
+      </div>
+
+      <!-- Video Menu -->
+      <div class="emu-dropdown">
+        <button class="emu-menu-btn" type="button">Video ▾</button>
+        <div class="emu-dropdown-content">
+          <button id="menu-toggle-fs" type="button"><span>⛶ Toggle Fullscreen</span><span class="emu-shortcut-hint">F11</span></button>
+          <div class="emu-dropdown-divider"></div>
+          <button id="menu-scale-fit" type="button"><span>Fit Screen (3:2 Aspect)</span></button>
+          <button id="menu-scale-crisp" type="button"><span>Pixel-Crisp (Integer)</span></button>
+          <button id="menu-scale-stretch" type="button"><span>Fill Display (Stretch)</span></button>
+        </div>
+      </div>
+
+      <!-- Audio Menu -->
+      <div class="emu-dropdown">
+        <button class="emu-menu-btn" type="button">Audio ▾</button>
+        <div class="emu-dropdown-content">
+          <button id="menu-toggle-music" type="button"><span>🔇 Mute / Unmute Music</span><span class="emu-shortcut-hint">Ctrl+M / N</span></button>
+        </div>
+      </div>
+
+      <!-- Options Menu -->
+      <div class="emu-dropdown">
+        <button class="emu-menu-btn" id="menu-options-btn" type="button">Options ▾</button>
+        <div class="emu-dropdown-content">
+          <button id="menu-open-settings" type="button"><span>⚙ Game Settings...</span><span class="emu-shortcut-hint">F1</span></button>
+          <button id="menu-open-map" type="button"><span>🗺️ Kanto Town Map...</span><span class="emu-shortcut-hint">M</span></button>
+          <div class="emu-dropdown-divider"></div>
+          <button class="menu-sprint-speed" data-sprint="balanced" type="button"><span>⚡ Sprint Speed: Normal (1.6x)</span></button>
+          <button class="menu-sprint-speed" data-sprint="fast" type="button"><span>⚡ Sprint Speed: Fast (1.85x)</span></button>
+          <button class="menu-sprint-speed" data-sprint="turbo" type="button"><span>🚀 Sprint Speed: Turbo (2.2x)</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="emu-menu-right">
+      <!-- Unified Save & Details Dropdown Menu with Down Mark (▾) -->
+      <div class="emu-dropdown emu-dropdown-right">
+        <button id="menu-save-dropdown-btn" class="emu-menu-btn" type="button" style="color: #facc15; font-weight: 700;">
+          <span>💾 Save [Slot 1] ▾</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PokéCRAFT PC Save Dropdown Menu -->
+  <div id="save-dropdown-menu" class="save-dropdown-floating">
+    <div class="save-dropdown-header-wrap">
+      <div class="save-dropdown-title-row">
+        <span class="save-dropdown-main-title">💾 PC SAVE STATES (SLOTS 1–6)</span>
+      </div>
+    </div>
+
+    <div class="emu-dropdown-divider"></div>
+
+    <!-- Quick Actions Bar -->
+    <div class="save-dropdown-quick-bar">
+      <button id="save-menu-quicksave" class="save-quick-btn save-quick-btn-primary" type="button">
+        <span>💾 Quick Save</span>
+        <span class="emu-shortcut-hint">F5</span>
+      </button>
+      <button id="save-menu-quickload" class="save-quick-btn" type="button">
+        <span>📂 Quick Load</span>
+        <span class="emu-shortcut-hint">F8</span>
+      </button>
+    </div>
+
+    <div class="emu-dropdown-divider"></div>
+    <div class="emu-dropdown-header">SAVE SLOTS WITH SCREENSHOTS &amp; DETAILS:</div>
+    <div id="save-dropdown-slots-list" class="save-menu-slots-list">
+      <!-- Dynamically populated with Slot 1-6 with images and details -->
+    </div>
+
+    <div class="emu-dropdown-divider"></div>
+    <button id="save-menu-show-details" class="save-dropdown-menu-item" type="button" style="color: #facc15; font-weight: 700;">
+      <span>📋 Full Save Manager &amp; Slots (F6)...</span>
+      <span class="emu-shortcut-hint">F6</span>
+    </button>
+    <div class="save-dropdown-footer-actions">
+      <label class="emu-dropdown-content-label" style="display:flex; justify-content:space-between; align-items:center; padding:6px 14px; color:#e2e8f0; cursor:pointer; font-size:12px; font-weight:500;">
+        <span>📥 Import Save (.sav)</span>
+        <input type="file" id="save-menu-import-file" accept=".sav,.json" style="display:none;">
+      </label>
+      <button id="save-menu-export-file" class="save-dropdown-menu-item" type="button">
+        <span>⬇ Export Active Save (.sav)</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Legacy HUD elements kept hidden for compatibility -->
+  <div id="game-hud-bar" style="display: none;">
+    <button id="hud-fullscreen-btn" class="hud-btn">⛶ Fullscreen</button>
+    <button id="hud-settings-btn" class="hud-btn">⚙ Settings</button>
+  </div>
+  <canvas id="game" width="480" height="320"></canvas>
+  <div id="hint"><b>WASD/Arrows</b> move · <b>Left Click / Z</b> mine/attack · <b>Right Click / X</b> place/eat · <b>Space</b> jump · <b>Shift</b> sprint · <b>E</b> inventory · <b>Q</b> drop · <b>1–9/Wheel</b> hotbar · <b>Enter</b> menu · <b>M</b> town map · <b>F1</b> settings · <b>F2</b> remap keys</div>
+  <script>
+    // Email sign-up for the developer's next game. Posts to /api/subscribe (a Cloudflare Pages Function that
+    // stores the address in D1); remembers a successful sign-up in this browser so the line stays quiet after.
+    window.addEventListener('DOMContentLoaded', () => {
+      const box = document.getElementById('signup'), open = document.getElementById('signup-open');
+      const form = document.getElementById('signup-form'), msg = document.getElementById('signup-msg');
+      if (!box || !open || !form) return;
+      const refit = () => window.dispatchEvent(new Event('resize'));
+      const done = (text) => { box.classList.add('done'); form.hidden = true; msg.textContent = text; refit(); };
+      try { if (localStorage.getItem('redstone-signed-up')) done("You're on the list for the next game. Thanks!"); } catch (e) {}
+      open.addEventListener('click', () => { box.classList.add('open'); form.hidden = false; form.email.focus(); refit(); });
+      // the game swallows clicks on the canvas, so give the keyboard back to Steve explicitly
+      const giveBack = () => { const active = document.activeElement; if (active && (active.form === form || active.closest?.('#sponsor-slot'))) active.blur(); };
+      document.getElementById('game')?.addEventListener('pointerdown', giveBack);
+      form.email?.addEventListener('keydown', (e) => { if (e.key === 'Escape') giveBack(); });
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button');
+        if (btn) btn.disabled = true;
+        if (msg) msg.textContent = '';
+        try {
+          const r = await fetch('/api/subscribe', { method: 'POST', headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ email: form.email.value, website: form.website.value }) });
+          const j = await r.json().catch(() => ({}));
+          if (r.ok && j.ok) {
+            try { localStorage.setItem('redstone-signed-up', '1'); } catch (e2) {}
+            giveBack(); done("You're on the list. Thanks!");
+          } else if (msg) msg.textContent = j.error === 'invalid email' ? "That email doesn't look right." : "That didn't go through. Try again in a moment.";
+        } catch (err) { if (msg) msg.textContent = "That didn't go through. Try again in a moment."; }
+        if (btn) btn.disabled = false;
+        refit();
+      });
+    });
+  </script>
+  <script type="module" src="src/sponsor.js"></script>
+  <script type="module" src="src/main.js"></script>
+  <script type="module">
+    // Vercel Web Analytics only runs on a vercel.app host. On Cloudflare Pages, Cloudflare's own Web Analytics
+    // is switched on in its dashboard and needs no code here. Local servers and the video renders send nothing.
+    import { inject } from './src/lib/vercel-analytics.mjs';   // @vercel/analytics, copied in by npm postinstall
+    if (/\.vercel\.app$/.test(location.hostname)) inject();
+  </script>
+
+  <!-- PokéCRAFT PC Settings Modal -->
+  <div id="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+    <div class="settings-window">
+      <div class="settings-header">
+        <div class="settings-title-wrap">
+          <img src="assets/ui/title_logo.png" alt="PokéCRAFT" class="settings-logo-img">
+          <h2 id="settings-title">GAME SETTINGS &amp; OPTIONS</h2>
+        </div>
+        <button id="settings-close-btn" class="settings-close-btn" title="Close (Esc)">✕</button>
+      </div>
+
+      <div class="settings-tabs">
+        <button class="tab-btn active" data-tab="tab-display">🖥️ DISPLAY</button>
+        <button class="tab-btn" data-tab="tab-audio">🔊 AUDIO</button>
+        <button class="tab-btn" data-tab="tab-controls">🎮 CONTROLS</button>
+        <button class="tab-btn" data-tab="tab-about">ℹ️ ABOUT GAME</button>
+      </div>
+
+      <div class="settings-body">
+        <!-- Display Tab -->
+        <div id="tab-display" class="tab-pane active">
+          <div class="opt-section">
+            <div class="opt-label">Display Mode</div>
+            <div class="opt-desc">Switch between borderless fullscreen gaming and windowed desktop mode.</div>
+            <div class="btn-group">
+              <button id="opt-mode-fullscreen" class="opt-btn">⛶ Fullscreen</button>
+              <button id="opt-mode-windowed" class="opt-btn active">🗗 Windowed</button>
+            </div>
+          </div>
+
+          <div class="opt-section">
+            <div class="opt-label">Screen Scaling</div>
+            <div class="opt-desc">Choose how the game canvas fills your display.</div>
+            <div class="btn-group">
+              <button class="opt-btn opt-scale-btn active" data-scale="fit">Fit Screen (Aspect 3:2)</button>
+              <button class="opt-btn opt-scale-btn" data-scale="crisp">Integer Crisp (Pixel-Perfect)</button>
+              <button class="opt-btn opt-scale-btn" data-scale="stretch">Stretch (Fill Display)</button>
+            </div>
+          </div>
+
+          <div class="opt-section">
+            <div class="opt-label">Windowed Resolution Presets</div>
+            <div class="opt-desc">Quick resize for windowed desktop play.</div>
+            <div class="btn-group">
+              <button class="opt-btn opt-res-btn" data-res="1280x720">1280 × 720</button>
+              <button class="opt-btn opt-res-btn" data-res="1600x900">1600 × 900</button>
+              <button class="opt-btn opt-res-btn" data-res="1920x1080">1920 × 1080</button>
+              <button class="opt-btn opt-res-btn" data-res="960x640">960 × 640 (2x)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Audio Tab -->
+        <div id="tab-audio" class="tab-pane">
+          <div class="opt-section">
+            <div class="opt-label">
+              <span>Master Volume</span>
+              <span id="val-master-vol" class="opt-val-badge">90%</span>
+            </div>
+            <div class="slider-wrap">
+              <input type="range" id="slider-master-vol" min="0" max="100" value="90">
+            </div>
+          </div>
+
+          <div class="opt-section">
+            <div class="opt-label">
+              <span>Music Volume</span>
+              <span id="val-music-vol" class="opt-val-badge">55%</span>
+            </div>
+            <div class="slider-wrap">
+              <input type="range" id="slider-music-vol" min="0" max="100" value="55">
+            </div>
+            <div style="margin-top: 8px;">
+              <label style="font-size: 12px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" id="check-music-mute">
+                <span>Mute Background Music (M key shortcut)</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="opt-section">
+            <div class="opt-label">
+              <span>Sound Effects (SFX) Volume</span>
+              <span id="val-sfx-vol" class="opt-val-badge">90%</span>
+            </div>
+            <div class="slider-wrap">
+              <input type="range" id="slider-sfx-vol" min="0" max="100" value="90">
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls Tab -->
+        <div id="tab-controls" class="tab-pane">
+          <div class="controls-grid">
+            <div class="ctrl-row"><span>Move Steve</span><span class="key-badge">WASD / Arrows</span></div>
+            <div class="ctrl-row"><span>Attack / Mine / Talk</span><span class="key-badge">🖱️ Left Click / Z</span></div>
+            <div class="ctrl-row"><span>Place / Use / Eat</span><span class="key-badge">🖱️ Right Click / X</span></div>
+            <div class="ctrl-row"><span>Jump</span><span class="key-badge">Space</span></div>
+            <div class="ctrl-row"><span>Sprint / Fast Move</span><span class="key-badge">Shift</span></div>
+            <div class="ctrl-row"><span>Open Inventory</span><span class="key-badge">E</span></div>
+            <div class="ctrl-row"><span>Drop Item</span><span class="key-badge">Q</span></div>
+            <div class="ctrl-row"><span>Hotbar Slots</span><span class="key-badge">1–9 / Wheel</span></div>
+            <div class="ctrl-row"><span>Prev / Next Item</span><span class="key-badge">C / V</span></div>
+            <div class="ctrl-row"><span>FireRed Menu</span><span class="key-badge">Enter</span></div>
+            <div class="ctrl-row"><span>Journey Map</span><span class="key-badge">J</span></div>
+            <div class="ctrl-row"><span>Mute Music</span><span class="key-badge">M</span></div>
+            <div class="ctrl-row"><span>Toggle Fullscreen</span><span class="key-badge">F11</span></div>
+            <div class="ctrl-row"><span>Game Settings</span><span class="key-badge">F1 / Esc</span></div>
+          </div>
+
+          <div class="sprint-guide-card">
+            <div class="sprint-guide-icon">🏃</div>
+            <div>
+              <div class="sprint-guide-title">HOW TO SPRINT (FAST RUN)</div>
+              <div class="sprint-guide-desc">
+                Hold <b>Shift</b> while moving with <b>WASD</b> or <b>Arrow Keys</b>. Steve runs at 1.6x speed across Kanto. You can remap this key in <b>Controls [F2]</b>.
+              </div>
+            </div>
+          </div>
+
+          <div class="opt-section" style="margin-top: 14px;">
+            <div class="opt-label">Sprint Speed Multiplier</div>
+            <div class="opt-desc">Default key: <b>Shift</b>. Select Steve's movement speed multiplier when sprinting:</div>
+            <div class="btn-group">
+              <button type="button" class="opt-btn opt-sprint-btn" data-sprint="gentle">Gentle (1.35x)</button>
+              <button type="button" class="opt-btn opt-sprint-btn active" data-sprint="balanced">🏃 Balanced (1.6x) [Default]</button>
+              <button type="button" class="opt-btn opt-sprint-btn" data-sprint="fast">⚡ Fast (1.85x)</button>
+              <button type="button" class="opt-btn opt-sprint-btn" data-sprint="turbo">🚀 Turbo (2.2x)</button>
+            </div>
+            <div style="margin-top: 10px; display: flex; flex-direction: column; gap: 6px; font-size: 12px;">
+              <label style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" id="check-always-sprint" checked>
+                <span>Always Allow Fast Sprint (Bypass hunger limit)</span>
+              </label>
+              <label style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" id="check-toggle-sprint">
+                <span>Toggle Sprint Mode (Tap Shift once to sprint instead of holding)</span>
+              </label>
+            </div>
+          </div>
+
+          <div style="margin-top: 14px; text-align: center;">
+            <button type="button" id="btn-open-remap-from-settings" class="btn-action-primary" style="padding: 6px 16px; font-size: 12px; cursor: pointer;">🎮 Open Custom Key Remapper [F2]</button>
+          </div>
+        </div>
+
+        <!-- About Game Tab -->
+        <div id="tab-about" class="tab-pane">
+          <div class="about-hero-box">
+            <img src="assets/ui/title_logo.png" alt="PokéCRAFT" class="about-logo-img">
+            <div class="about-hero-text">
+              <h3>PokéCRAFT PC Edition</h3>
+              <p>Minecraft Steve in FireRed Kanto — Built-in Emulator &amp; Offline PC Gaming</p>
+              <div class="about-badge-row">
+                <span class="about-pill">Direct Executable</span>
+                <span class="about-pill">60 FPS Hardware Scaled</span>
+                <span class="about-pill">Single Player Offline</span>
+                <span class="about-pill">Zero Web Latency</span>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Emulator Creator Section -->
+          <div class="opt-section" style="margin-top: 14px; background: rgba(30, 41, 59, 0.75); border: 1px solid rgba(99, 102, 241, 0.45); border-radius: 8px; padding: 12px 14px;">
+            <div class="opt-label" style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: #818cf8; font-size: 13px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block; vertical-align:middle;">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+              <span>🛠️ EMULATOR CREATOR</span>
+            </div>
+            <div class="opt-desc" style="color: #cbd5e1; margin-top: 4px; font-size: 12px;">
+              PokéCRAFT Emulator, Desktop Engine &amp; Native Distribution:
+            </div>
+            <div style="margin-top: 8px; display: flex; align-items: center; justify-content: space-between; background: rgba(15, 23, 42, 0.85); border: 1px solid #334155; border-radius: 6px; padding: 8px 12px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 15px; font-weight: 700; color: #f8fafc; letter-spacing: 0.03em;">ANBU007T</span>
+                <span style="background: rgba(99, 102, 241, 0.25); color: #a5b4fc; border: 1px solid rgba(99, 102, 241, 0.5); font-size: 10.5px; font-weight: 600; padding: 2px 7px; border-radius: 4px;">Emulator Creator</span>
+              </div>
+              <a href="https://github.com/ANBU007T" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; background: #238636; color: #ffffff; text-decoration: none; font-size: 11.5px; font-weight: 600; padding: 5px 12px; border-radius: 5px; box-shadow: 0 1px 3px rgba(0,0,0,0.3); transition: background 0.2s;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+                <span>GitHub @ANBU007T ↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Image 2 Details: Sponsor Banner -->
+          <div class="opt-section">
+            <div class="opt-label">💎 Project Sponsorship &amp; Support</div>
+            <div class="opt-desc">Support the creators and future indie game development:</div>
+            <aside id="sponsor-slot" aria-label="Sponsorship">
+              <a class="sponsor-link" href="https://x.com/mozetech" target="_blank" rel="sponsored noopener noreferrer" aria-label="Sponsor this game. Open @mozetech on X to send a direct message.">
+                <span class="sponsor-label">SPONSOR</span>
+                <span class="sponsor-message">Sponsor this game — DM <strong>@mozetech</strong> on X</span>
+                <span class="sponsor-arrow">↗</span>
+              </a>
+            </aside>
+          </div>
+
+          <!-- Image 1 Details: Email Signup & Fan Legal Disclaimer -->
+          <div class="opt-section" style="margin-top: 14px;">
+            <div class="opt-label">📬 Developer Updates &amp; Disclaimer</div>
+            <div id="legal">
+              <div id="signup">
+                <span class="lead">Liked this? <button type="button" id="signup-open">Get one email when my next game is out.</button></span>
+                <form id="signup-form" hidden>
+                  <input type="email" name="email" required maxlength="254" autocomplete="email" placeholder="you@example.com" aria-label="Email address">
+                  <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+                  <button type="submit">Notify me</button>
+                  <span class="note">Just that one email when it's out. Your address is never shared.</span>
+                </form>
+                <span id="signup-msg" role="status"></span>
+              </div>
+              <div class="legal-disclaimer-box">
+                Unofficial fan project. Free to play. Website sponsorships are arranged independently by the developer. Not affiliated with or endorsed by Nintendo, Game Freak, Creatures, The Pokémon Company, Mojang or Microsoft. Pokémon and Minecraft are trademarks of their respective owners.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-footer">
+        <button id="btn-quit-game" class="btn-action-quit">🚪 Exit Game</button>
+        <button id="btn-resume-game" class="btn-action-primary">Resume Game</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Retro Emulator Toast Notification -->
+  <div id="emulator-toast"></div>
+
+  <!-- Manual Save Slots & State Manager Modal -->
+  <div id="save-slots-modal" role="dialog" aria-modal="true" aria-labelledby="save-slots-title">
+    <div class="slots-window">
+      <div class="settings-header">
+        <div class="settings-title-wrap">
+          <img src="assets/ui/favicon.png" width="20" height="20" alt="PokéCRAFT" style="image-rendering: pixelated;">
+          <h2 id="save-slots-title" style="margin:0; font-size:15px; letter-spacing:0.04em;">MANUAL SAVE SLOTS &amp; STATES</h2>
+        </div>
+        <button id="save-slots-close-btn" class="settings-close-btn" title="Close (Esc)">✕</button>
+      </div>
+      <div class="slots-body">
+        <div style="font-size: 11px; color: #9ca3af; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+          <span>Choose a slot to Save, Load, Overwrite, or Export. Press <b>F5</b> to Quick Save, <b>F8</b> to Quick Load active slot.</span>
+          <span style="color: #facc15; font-weight: 700;">Hotkeys: F5 (Save) · F8 (Load) · F6 (Slots)</span>
+        </div>
+        <div id="slots-grid-container" class="slots-grid">
+          <!-- Dynamically populated by save_manager.js -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls Remapper Modal -->
+  <div id="controls-modal" role="dialog" aria-modal="true" aria-labelledby="controls-title">
+    <div class="controls-window">
+      <div class="settings-header">
+        <div class="settings-title-wrap">
+          <img src="assets/ui/favicon.png" width="20" height="20" alt="PokéCRAFT" style="image-rendering: pixelated;">
+          <h2 id="controls-title" style="margin:0; font-size:15px; letter-spacing:0.04em;">EDIT &amp; REMAP CONTROLS</h2>
+        </div>
+        <button id="controls-close-btn" class="settings-close-btn" title="Close (Esc)">✕</button>
+      </div>
+      <div style="padding: 14px 20px; overflow-y: auto; max-height: calc(90vh - 120px);">
+        <div style="font-size: 11px; color: #9ca3af; margin-bottom: 12px; display:flex; justify-content: space-between; align-items:center;">
+          <span>Click any key button below, then press your desired key to remap. Keys are saved automatically!</span>
+          <button id="controls-reset-btn" type="button" style="background:#374151; border:1px solid #4b5563; color:#f3f4f6; font-size:11px; padding:3px 8px; border-radius:4px; cursor:pointer;">Reset Defaults</button>
+        </div>
+        <div id="controls-grid-container">
+          <!-- Dynamically populated by controls_manager.js -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- High-DPI Non-Pixelated PokéCRAFT Kanto Town Map Modal -->
+  <div id="pokecraft-map-modal" class="pokecraft-map-modal" role="dialog" aria-modal="true" aria-labelledby="map-modal-title">
+    <div class="pokecraft-map-container">
+      <!-- Modal Header -->
+      <div class="pokecraft-map-header">
+        <div class="pokecraft-map-title-row">
+          <span class="pokecraft-map-icon">🗺️</span>
+          <h2 id="map-modal-title" class="pokecraft-map-title">KANTO REGION MAP</h2>
+          <span id="map-style-badge" class="map-badge">HD OVERWORLD</span>
+        </div>
+        <div class="pokecraft-map-header-actions">
+          <button id="map-fog-status-btn" type="button" class="map-header-btn map-fog-btn" title="Fog of War status">
+            <span class="btn-icon">🔒</span>
+            <span id="map-fog-btn-text">FOG LOCKED (2/51)</span>
+          </button>
+          <button id="map-close-btn" type="button" class="map-close-btn" title="Close Map (Esc / M)">
+            ESC ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Body: High-Res Map Viewport + Non-Pixelated High-DPI Sidebar -->
+      <div class="pokecraft-map-body">
+        <!-- Interactive High-Res Map Viewport -->
+        <div class="pokecraft-map-viewport-wrap" id="map-viewport-wrap">
+          <canvas id="pokecraft-map-hires-canvas"></canvas>
+
+          <!-- Floating Zoom, Steve Radar & View Controls -->
+          <div class="map-floating-controls">
+            <button id="map-zoom-in" type="button" title="Zoom In (+)">➕</button>
+            <button id="map-zoom-out" type="button" title="Zoom Out (-)">➖</button>
+            <button id="map-center-steve" type="button" title="Center on Steve (C)">🎯</button>
+            <button id="map-reset-view" type="button" title="Reset View Overview">🔄</button>
+          </div>
+
+          <!-- Zoom & Pan Indicator Badge -->
+          <div class="map-zoom-indicator" id="map-zoom-indicator">
+            <span>🔍 1.0x</span>
+            <span class="pan-hint">· Drag: Pan · Scroll: Zoom</span>
+          </div>
+
+          <!-- Temporary Toast Notification -->
+          <div id="map-toast" class="map-toast-popup"></div>
+        </div>
+
+        <!-- High-DPI Non-Pixelated Sidebar with Crisp Vector Typography -->
+        <div class="pokecraft-map-sidebar" id="map-sidebar">
+          <!-- Dynamically populated with crystal-clear fonts & rich details -->
+        </div>
+      </div>
+
+      <!-- Bottom Toolbar: Category Filter Chips & Hotkey Guide -->
+      <div class="pokecraft-map-footer">
+        <div class="map-filters-group" id="map-filters-group">
+          <button class="map-filter-chip active" data-filter="all" type="button">ALL (51)</button>
+          <button class="map-filter-chip" data-filter="city" type="button">🏙️ CITIES (10)</button>
+          <button class="map-filter-chip" data-filter="route" type="button">🏞️ ROUTES (25)</button>
+          <button class="map-filter-chip" data-filter="dungeon" type="button">⛰️ CAVES (8)</button>
+          <button class="map-filter-chip" data-filter="gym" type="button">🥊 GYMS (8)</button>
+          <button class="map-filter-chip" data-filter="discovered" type="button">🧭 DISCOVERED</button>
+        </div>
+        <div class="map-footer-hints">
+          <span class="key-pill">TAB</span> Filter
+          <span class="key-pill">↑ / ↓</span> Select
+          <span class="key-pill">C</span> Steve
+          <span class="key-pill">M / Esc</span> Close
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="save_manager.js"></script>
+  <script src="controls_manager.js"></script>
+  <script src="settings.js"></script>
+</body>
+</html>

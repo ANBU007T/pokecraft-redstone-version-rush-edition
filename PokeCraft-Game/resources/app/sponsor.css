@@ -1,0 +1,42 @@
+:root {
+  --sponsor-bg: #1c1b1b;
+  --sponsor-border: #393232;
+  --sponsor-text: #eee9e1;
+  --sponsor-muted: #c4a7a0;
+}
+#sponsor-slot {
+  width: min(960px, calc(100% - 24px));
+  margin: 0 12px 10px;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  background: var(--sponsor-bg);
+  border: 1px solid var(--sponsor-border);
+  border-radius: 5px;
+  font: 12px/1.5 ui-monospace, Menlo, monospace;
+}
+#sponsor-slot[hidden] { display: none; }
+.sponsor-link {
+  min-height: 42px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 9px 13px;
+  color: var(--sponsor-text);
+  text-decoration: none;
+}
+.sponsor-link:hover { background: #262020; }
+.sponsor-link:focus-visible { outline: 2px solid #ef9a88; outline-offset: 3px; }
+.sponsor-label { color: var(--sponsor-muted); text-transform: uppercase; letter-spacing: .1em; font-size: 9px; flex: 0 0 auto; }
+.sponsor-message { overflow-wrap: anywhere; }
+.sponsor-message strong { font-weight: 650; }
+.sponsor-arrow { margin-left: auto; flex: 0 0 auto; }
+@media (max-width: 480px) {
+  #sponsor-slot { width: calc(100% - 16px); margin: 0 8px 8px; }
+  .sponsor-link { gap: 9px; padding: 8px 10px; font-size: 11px; }
+  .sponsor-label { font-size: 8px; }
+}
+@media (pointer: coarse) and (orientation: landscape) {
+  #sponsor-slot { width: min(680px, calc(100% - 32px)); margin-bottom: 4px; }
+  .sponsor-link { min-height: 36px; padding-block: 5px; }
+}

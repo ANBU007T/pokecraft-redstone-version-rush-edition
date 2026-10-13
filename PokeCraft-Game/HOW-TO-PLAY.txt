@@ -1,0 +1,35 @@
+========================================================
+  ⚡ PokéCRAFT — Pokémon Redstone (PC Edition v1.0.1)
+========================================================
+
+🎮 HOW TO PLAY:
+1. Double-click "PokeCraft.exe" (or "Play-PokeCraft.bat").
+2. The game starts instantly in offline desktop mode!
+3. No installation, no internet, and no browser required.
+
+--------------------------------------------------------
+🕹️ CONTROLS & SHORTCUTS:
+--------------------------------------------------------
+  • Movement       : W / A / S / D  (or Arrow Keys)
+  • Mine / Attack  : Left Click  (or Z)
+  • Place / Eat    : Right Click (or X)
+  • Jump           : Spacebar
+  • Sprint         : Shift  (runs at 1.6x speed)
+  • Inventory      : E
+  • Drop Item      : Q
+  • Hotbar         : 1 - 9  (or Mouse Wheel)
+  • Pokémon Menu   : Enter
+  • Town Map       : M (or J)
+  • Settings       : F1 (or Esc)
+  • Remap Keys     : F2
+  • Quick Save     : F5  (Saves across Slots 1-6)
+  • Quick Load     : F8
+  • Fullscreen     : F11
+
+--------------------------------------------------------
+🛠️ EMULATOR CREATOR:
+--------------------------------------------------------
+  • Developer : ANBU007T
+  • GitHub    : https://github.com/ANBU007T
+  • Role      : Emulator Architecture & PC Distribution
+========================================================
