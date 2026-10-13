@@ -87,6 +87,30 @@ Click **Code ➔ Download ZIP** on GitHub. Extract the folder and double-click *
 
 ---
 
+## 🌐 Working Multiplayer Co-Op (Cable Club)
+
+PokéCRAFT features real-time multiplayer co-op with player movement interpolation, custom skins (Steve, Alex, Zuri, etc.), block mining & placing sync, wild Pokémon battles, and in-game chat (`T` key)!
+
+### 1. How to Host a World
+1. Enter any Pokémon Center and talk to the **Cable Club** receptionist (or click **`> JOIN CO-OP <`** on the title screen).
+2. Click **HOST**.
+3. The game generates a **5-Letter Room Code** (e.g. `KT4RP`) and displays your **Local LAN IP** (e.g. `192.168.1.14:5901`).
+4. Share the code (and IP if on local Wi-Fi) with your friends!
+
+### 2. How to Join a Friend's World
+1. Talk to the Cable Club receptionist or click **`> JOIN CO-OP <`**.
+2. Enter the **5-Letter Room Code**.
+3. **If playing on the same PC**: Leave the Host IP / Server field blank (defaults to local).
+4. **If playing on local Wi-Fi / LAN / Radmin VPN**: Enter the host's IP in the Host IP field (e.g. `192.168.1.14`).
+5. Choose your name and skin, then click **JOIN**!
+6. Enjoy exploring Kanto together!
+
+### 3. Global Cloud Relay (Internet Play)
+A ready-to-deploy cloud relay template is included in [`relay-server/`](relay-server/). You can deploy it to **Render.com** (100% free) with 1 click so anyone across the world can join via 5-letter codes without needing VPNs or port forwarding!
+
+---
+
+
 ## 👥 Credits & Attribution
 
 ### 🌟 Original Game Creator

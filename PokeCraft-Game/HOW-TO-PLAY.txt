@@ -1,5 +1,5 @@
 ========================================================
-  ⚡ PokéCRAFT — Pokémon Redstone (PC Edition v1.0.1)
+  ⚡ PokéCRAFT — Pokémon Redstone (Rush Edition v1.0.1)
 ========================================================
 
 🎮 HOW TO PLAY:
@@ -14,20 +14,50 @@
   • Mine / Attack  : Left Click  (or Z)
   • Place / Eat    : Right Click (or X)
   • Jump           : Spacebar
-  • Sprint         : Shift  (runs at 1.6x speed)
-  • Inventory      : E
+  • Sprint         : Shift  (runs at 1.6x speed across Kanto)
+  • Inventory      : E  (Minecraft inventory & crafting)
   • Drop Item      : Q
   • Hotbar         : 1 - 9  (or Mouse Wheel)
-  • Pokémon Menu   : Enter
+  • Pokémon Menu   : Enter (Party, Pokédex, Bag, Trainer Card)
   • Town Map       : M (or J)
   • Settings       : F1 (or Esc)
   • Remap Keys     : F2
-  • Quick Save     : F5  (Saves across Slots 1-6)
+  • Quick Save     : F5  (Saves across Slots 1-6 with screenshots)
   • Quick Load     : F8
   • Fullscreen     : F11
 
 --------------------------------------------------------
-🛠️ EMULATOR CREATOR:
+🌐 MULTIPLAYER CO-OP (CABLE CLUB):
+--------------------------------------------------------
+  • Talk to the Cable Club receptionist in any Pokémon Center
+    (or click "> JOIN CO-OP <" on the title screen).
+  • TO HOST A WORLD:
+    1. Select "HOST".
+    2. Your game opens a 5-letter Room Code (e.g. KT4RP)
+       and displays your LAN IP (e.g. 192.168.1.14:5901).
+    3. Share the code/IP with your friends!
+  • TO JOIN A WORLD:
+    1. Select "JOIN".
+    2. Enter the 5-letter Room Code.
+    3. If playing across Wi-Fi or LAN, enter the Host's IP.
+       (If playing on the same PC, leave Host IP blank).
+    4. Choose your name & skin (Alex, Zuri, Kai, etc.) 
+       and click JOIN!
+    5. Explore Kanto together in real-time!
+  • CHAT:
+    Press T in-game to chat with friends.
+
+--------------------------------------------------------
+🌟 ORIGINAL GAME CREATOR:
+--------------------------------------------------------
+  • Original Game : Pokémon Redstone (Steve in FireRed)
+  • Creator       : MozeTech
+  • X (Twitter)   : https://x.com/mozetech
+  • Deep respect and gratitude to MozeTech for creating
+    this incredible fan crossover game!
+
+--------------------------------------------------------
+🛠️ EMULATOR & PC DISTRIBUTION:
 --------------------------------------------------------
   • Developer : ANBU007T
   • GitHub    : https://github.com/ANBU007T
