@@ -112,15 +112,18 @@ function draw(ctx) {
     } else if (ui.mode === 'code') {
       // the code big in the middle of a FireRed window; COPY, SHARE and OK under it on the right
       const code = (NET.room && NET.room.code) || '?????', n = NET.s ? NET.s.avatars.size : 0;
-      drawWindow(ctx, 8, 6, VW - 16, 84);
-      drawText(ctx, 'Room code:', 20, 14, FG, SH);
+      drawWindow(ctx, 8, 4, VW - 16, 92);
+      drawText(ctx, 'Room code:', 20, 12, FG, SH);
       ctx.setTransform(1, 0, 0, 1, 0, 0);
-      mcText(ctx, code, Math.round(HW / 2 - mcWidth(code, 4) / 2), 60, '#383838', false, 4);
+      mcText(ctx, code, Math.round(HW / 2 - mcWidth(code, 4) / 2), 52, '#383838', false, 4);
       ctx.setTransform(2, 0, 0, 2, 0, 0);
-      drawText(ctx, ui.flash > 0 ? ui.flashText : 'Tell your friends this code.', 20, 52, FG, SH);
-      drawText(ctx, n === 1 ? '1 friend is here.' : `${n} friends are here.`, 20, 68, '#707070', SH);
+      const ip = window.__localIp || '127.0.0.1';
+      drawText(ctx, `LAN IP: ${ip}:5901`, 20, 48, '#4a7bb0', SH);
+      drawText(ctx, ui.flash > 0 ? ui.flashText : 'Give friends code (or LAN IP).', 20, 62, FG, SH);
+      drawText(ctx, n === 1 ? '1 friend is here.' : `${n} friends are here.`, 20, 76, '#707070', SH);
       const items = codeItems(), h = items.length * 16 + 12, x = VW - 72, y = VH - h - 4;
       drawWindow(ctx, x, y, 72, h);
+
       items.forEach((it, i) => { drawText(ctx, it, x + 18, y + 6 + i * 16, FG, SH); if (i === Math.min(ui.cursor, items.length - 1)) cursorArrow(ctx, x + 9, y + 9 + i * 16); });
     } else if (ui.mode === 'wait') {
       drawMessage(ctx, [ui.text], 999, false, ui.t);
@@ -243,11 +246,15 @@ export function openJoin({ code = '', from = null } = {}) {
   div.style.width = w + 'px';
   let saved = '';
   try { saved = localStorage.getItem('rs.coop.name') || ''; } catch (e) { /* none */ }
+  let savedServer = '';
+  try { savedServer = localStorage.getItem('rs.coop.server') || ''; } catch (e) { /* none */ }
   const label = (s) => s[0].toUpperCase() + s.slice(1);
   div.innerHTML = `<form autocomplete="off" novalidate>
     <div class="t">JOIN A FRIEND'S WORLD</div>
     <label for="coop-code">Enter the room code.</label>
     <input id="coop-code" name="code" maxlength="5" autocapitalize="characters" autocorrect="off" spellcheck="false" enterkeyhint="next" value="${escHtml(code)}">
+    <label for="coop-server">Host IP / Server (blank = local)</label>
+    <input id="coop-server" name="server" autocorrect="off" spellcheck="false" enterkeyhint="next" placeholder="127.0.0.1 or 192.168.x.x" value="${escHtml(savedServer)}">
     <label for="coop-name">What's your name?</label>
     <input id="coop-name" name="name" maxlength="10" autocorrect="off" spellcheck="false" enterkeyhint="go" placeholder="ALEX" value="${escHtml(saved)}">
     <label for="coop-skin">Look</label>
@@ -256,7 +263,7 @@ export function openJoin({ code = '', from = null } = {}) {
     <div class="b"><button type="button" class="cancel">CANCEL</button><button type="submit">JOIN</button></div>
   </form>`;
   document.body.appendChild(div);
-  const form = div.querySelector('form'), codeIn = form.code, nameIn = form.name, skinIn = form.skin, err = div.querySelector('.err');
+  const form = div.querySelector('form'), codeIn = form.code, serverIn = form.server, nameIn = form.name, skinIn = form.skin, err = div.querySelector('.err');
   const done = () => {
     closeOverlay('coop-join');
     document.removeEventListener('pointerdown', outside, true);
@@ -268,16 +275,29 @@ export function openJoin({ code = '', from = null } = {}) {
   codeIn.addEventListener('input', () => { const v = codeIn.value.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 5); if (v !== codeIn.value) codeIn.value = v; });
   div.querySelector('.cancel').addEventListener('click', done);
   form.addEventListener('keydown', (e) => { if (e.key === 'Escape') { e.preventDefault(); done(); } });
-  codeIn.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); nameIn.focus(); } });
+  codeIn.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); (serverIn || nameIn).focus(); } });
+  if (serverIn) serverIn.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); nameIn.focus(); } });
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const bad = S.requestJoin(codeIn.value, nameIn.value, skinIn.value);
+    let customBase = null;
+    const rawServer = (serverIn ? serverIn.value : '').trim();
+    if (rawServer) {
+      let s = rawServer;
+      if (!/^wss?:\/\//i.test(s)) {
+        if (!/:[0-9]+$/.test(s)) s += ':5901';
+        s = 'ws://' + s;
+      }
+      customBase = s;
+      try { localStorage.setItem('rs.coop.server', rawServer); } catch(e){}
+    }
+    const bad = S.requestJoin(codeIn.value, nameIn.value, skinIn.value, customBase);
     if (bad) { err.textContent = bad === TEXT.badname ? 'Names are 1 to 10 letters (A to Z) or numbers.' : 'Enter the 5-letter room code.'; return; }
     err.textContent = 'Joining...';
     for (const b of form.querySelectorAll('button')) b.disabled = true;
   });
   (code ? nameIn : codeIn).focus();
 }
+
 
 // chat: T (or CHAT on the phone pad) opens a line at the bottom left; Enter sends, Escape closes
 export function openChat() {

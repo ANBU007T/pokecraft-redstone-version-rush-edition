@@ -426,7 +426,18 @@
         setSprintSpeedMode(btn.dataset.sprint);
       });
     });
+
+    // Retrieve Local LAN IP for Multiplayer Host Display
+    if (window.gameBridge && window.gameBridge.getNetworkIps) {
+      window.gameBridge.getNetworkIps().then((ips) => {
+        if (Array.isArray(ips) && ips.length) {
+          window.__localIp = ips[0];
+          console.log('[Multiplayer] Local network IPs:', ips);
+        }
+      }).catch(() => {});
+    }
   }
 
   window.addEventListener('DOMContentLoaded', initEmulatorMenuBar);
 })();
+
