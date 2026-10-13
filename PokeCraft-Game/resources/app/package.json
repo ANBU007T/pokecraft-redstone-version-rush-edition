@@ -1,9 +1,20 @@
 {
-  "name": "pokecraft-redstone-version-pc",
+  "name": "pokecraft-redstone-version-rush-edition",
   "version": "1.0.1",
-  "description": "PokéCRAFT - Pokemon Redstone PC Desktop Edition v1.0.1 (Minecraft Steve in FireRed Kanto)",
+  "description": "PokéCRAFT - Pokemon Redstone PC Desktop (Rush Edition v1.0.1) — Minecraft Steve in FireRed Kanto",
   "main": "main.electron.js",
-  "repository": "https://github.com/ANBU007T/pokecraft-redstone-version-pc",
-  "author": "ANBU007T",
+  "repository": "https://github.com/ANBU007T/pokecraft-redstone-version-rush-edition",
+  "contributors": [
+    {
+      "name": "MozeTech",
+      "role": "Original Game Creator (Pokemon Redstone)",
+      "url": "https://x.com/mozetech"
+    },
+    {
+      "name": "ANBU007T",
+      "role": "Emulator & PC Distribution Creator",
+      "url": "https://github.com/ANBU007T"
+    }
+  ],
   "license": "MIT"
 }

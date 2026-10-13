@@ -1,5 +1,5 @@
 ========================================================
-  ⚡ PokéCRAFT — Pokémon Redstone (PC Edition v1.0.1)
+  ⚡ PokéCRAFT — Pokémon Redstone (Rush Edition v1.0.1)
 ========================================================
 
 🎮 HOW TO PLAY:
@@ -27,7 +27,16 @@
   • Fullscreen     : F11
 
 --------------------------------------------------------
-🛠️ EMULATOR CREATOR:
+🌟 ORIGINAL GAME CREATOR:
+--------------------------------------------------------
+  • Original Game : Pokémon Redstone (Steve in FireRed)
+  • Creator       : MozeTech
+  • X (Twitter)   : https://x.com/mozetech
+  • Deep respect and gratitude to MozeTech for creating
+    this incredible fan crossover game!
+
+--------------------------------------------------------
+🛠️ EMULATOR & PC DISTRIBUTION:
 --------------------------------------------------------
   • Developer : ANBU007T
   • GitHub    : https://github.com/ANBU007T

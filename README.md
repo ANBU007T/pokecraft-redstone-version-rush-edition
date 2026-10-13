@@ -1,12 +1,21 @@
-# ⚡ PokéCRAFT — Pokémon Redstone (PC Desktop Edition)
+# ⚡ PokéCRAFT — Pokémon Redstone (Rush Edition / PC Desktop)
 
-[![Release](https://img.shields.io/badge/Release-v1.0.1-brightgreen.svg)](https://github.com/ANBU007T/pokecraft-redstone-version-pc/releases)
-[![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%2F%2011-blue.svg)](https://github.com/ANBU007T/pokecraft-redstone-version-pc)
-[![Git LFS](https://img.shields.io/badge/Git%20LFS-Tracked%20(*.exe)-orange.svg)](https://git-lfs.github.com/)
-[![Creator](https://img.shields.io/badge/Creator-ANBU007T-purple.svg)](https://github.com/ANBU007T)
+[![Original Creator: MozeTech](https://img.shields.io/badge/Original%20Creator-MozeTech%20(%40mozetech)-red.svg)](https://x.com/mozetech)
+[![Emulator Creator: ANBU007T](https://img.shields.io/badge/Emulator%20Creator-ANBU007T-purple.svg)](https://github.com/ANBU007T)
+[![Release](https://img.shields.io/badge/Release-v1.0.1-brightgreen.svg)](https://github.com/ANBU007T/pokecraft-redstone-version-rush-edition/releases)
+[![Platform](https://img.shields.io/badge/Platform-Windows%2010%20%2F%2011-blue.svg)](https://github.com/ANBU007T/pokecraft-redstone-version-rush-edition)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 An authentic standalone PC Desktop release of **PokéCRAFT** (Pokémon Redstone). Play as **Minecraft Steve in FireRed Kanto** with complete survival mechanics, block mining, crafting, wild Pokémon battles, and an offline desktop engine.
+
+---
+
+> [!IMPORTANT]
+> ### 🌟 Full Respect to the Original Creator: MozeTech
+> **PokéCRAFT (Pokémon Redstone)** was originally created, envisioned, and developed by **MozeTech** ([@mozetech on X](https://x.com/mozetech)).
+> All original gameplay concepts, custom mechanics, sprites, and the incredible world bringing **Minecraft Steve into Pokémon FireRed Kanto** are the creative work of MozeTech.
+>
+> This update (**Rush Edition / PC Desktop Port**) is developed by **ANBU007T** ([@ANBU007T on GitHub](https://github.com/ANBU007T)) to deliver a lightweight, high-performance offline desktop engine and instant-boot standalone binary (`PokeCraft.exe`) for players everywhere with deepest gratitude and honor to the original author.
 
 ---
 
@@ -27,8 +36,10 @@ Anyone on any Windows 10 / 11 PC can clone or download this repository and play 
 
 ### Option 1: Direct Play via Git Clone
 ```bash
-git clone https://github.com/ANBU007T/pokecraft-redstone-version-pc.git
+git clone https://github.com/ANBU007T/pokecraft-redstone-version-rush-edition.git
 ```
+*(Or clone from `https://github.com/ANBU007T/pokecraft-redstone-version-pc.git`)*
+
 Open the folder and double-click **`PokeCraft.exe`** (or **`Play-PokeCraft.bat`**)!
 
 ### Option 2: Download GitHub ZIP
@@ -76,8 +87,6 @@ Click **Code ➔ Download ZIP** on GitHub. Extract the folder and double-click *
 
 ---
 
----
-
 ## 👥 Credits & Attribution
 
 ### 🌟 Original Game Creator
@@ -86,15 +95,15 @@ Click **Code ➔ Download ZIP** on GitHub. Extract the folder and double-click *
 * **X (Twitter)**: [@mozetech](https://x.com/mozetech)
 * *Huge respect and gratitude to MozeTech for creating this brilliant and creative fan crossover game.*
 
-### 🛠️ Emulator & Platform Distribution (v1.0.1 Update)
+### 🛠️ Emulator & Platform Distribution (Rush Edition v1.0.1)
 * **Emulator Creator**: **ANBU007T**
 * **GitHub**: [@ANBU007T](https://github.com/ANBU007T)
 * **Contributions**:
   * Standalone offline Windows PC desktop distribution architecture
-  * Fast-boot streaming engine (asynchronous sprite loading in < 1 second)
+  * Ultra-fast native Rust execution engine (`PokeCraft.exe` ~1.0 MB)
+  * Asynchronous critical asset pre-warming with instant startup
   * Dedicated 6-slot save state system with visual screenshots
-  * Full offline Electron packaging and clean dependency optimization
-  * Git LFS integration for GitHub repository hosting
+  * Git LFS bypass configuration ensuring zero-setup instant download & play
 
 ### 🎮 Original Franchises
 * **Pokémon**: © Nintendo / Creatures Inc. / GAME FREAK inc.
@@ -104,4 +113,3 @@ Click **Code ➔ Download ZIP** on GitHub. Extract the folder and double-click *
 
 ## ⚖️ Legal Notice & Disclaimer
 This is an unofficial fan-made project created for educational and preservation purposes. Free to play. Not affiliated with, endorsed by, or sponsored by Nintendo, Game Freak, Creatures, The Pokémon Company, Mojang, or Microsoft. Pokémon and Minecraft are registered trademarks of their respective owners.
-
