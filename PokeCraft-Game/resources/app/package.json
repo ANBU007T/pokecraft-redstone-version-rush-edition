@@ -1,8 +1,9 @@
 {
-  "name": "pokecraft",
+  "name": "pokecraft-redstone-version-pc",
   "version": "1.0.1",
-  "description": "PokéCRAFT - Pokemon Redstone PC Edition v1.0.1",
+  "description": "PokéCRAFT - Pokemon Redstone PC Desktop Edition v1.0.1 (Minecraft Steve in FireRed Kanto)",
   "main": "main.electron.js",
-  "author": "PokéCRAFT",
+  "repository": "https://github.com/ANBU007T/pokecraft-redstone-version-pc",
+  "author": "ANBU007T",
   "license": "MIT"
 }
