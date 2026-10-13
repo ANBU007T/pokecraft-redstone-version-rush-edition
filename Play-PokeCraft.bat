@@ -4,9 +4,11 @@ cd /d "%~dp0"
 echo Launching PokéCRAFT PC Edition...
 if exist "PokeCraft-Game\PokeCraft.exe" (
     start "" "PokeCraft-Game\PokeCraft.exe"
+) else if exist "PokeCraft-Native.exe" (
+    start "" "PokeCraft-Native.exe"
 ) else if exist "PokeCraft.exe" (
     start "" "PokeCraft.exe"
 ) else (
-    echo Error: Could not locate PokeCraft.exe launcher.
+    echo Error: Could not locate PokeCraft executable.
     pause
 )
