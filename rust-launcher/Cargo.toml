@@ -1,0 +1,21 @@
+[package]
+name = "pokecraft"
+version = "1.0.1"
+edition = "2021"
+authors = ["PokéCRAFT Team"]
+description = "PokéCRAFT — High-Performance Pure Rust Native Desktop Edition"
+
+[dependencies]
+# Desktop Windowing and Native WebView
+wry = "0.57"
+tao = "0.37"
+tiny_http = "0.12"
+mime_guess = "2.0"
+percent-encoding = "2.3"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
