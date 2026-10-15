@@ -1,0 +1,12 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# GitHub Linguist Language overrides
+assets/** linguist-vendored
+*.json linguist-vendored
+*.bin linguist-vendored
+*.bat linguist-vendored
+*.exe binary
+
+# Pure Rust
+*.rs linguist-detectable=true
