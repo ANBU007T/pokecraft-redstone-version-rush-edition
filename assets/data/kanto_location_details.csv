@@ -1,0 +1,51 @@
+﻿Location,Type,Connects to,Highlights
+Pallet Town,City,Route 1; Route 21 (Surf),"Starting town. Professor Oak's Lab, player house, rival house."
+Route 1,Route,Pallet Town; Viridian City,Early wild Pokemon and ledges. Short path to Viridian.
+Viridian City,City,Route 1; Route 2; Route 22,"Poke Mart (Oak's Parcel), Trainer School, Pokemon Center. Gym (Giovanni, Earth Badge) opens after you have 7 badges."
+Route 22,Route,Viridian City; Route 23,Rival battles. West of Viridian toward the Pokemon League.
+Route 23,Route,Route 22; Victory Road,Badge-check gates; you need all 8 badges to pass.
+Victory Road,Cave,Route 23; Indigo Plateau,Final dungeon before the Pokemon League. Moltres is found here in FireRed/LeafGreen.
+Indigo Plateau,Special,Victory Road,"Pokemon League: Elite Four (Lorelei, Bruno, Agatha, Lance) then the Champion (your rival)."
+Route 2 (south),Route,Viridian City; Viridian Forest; Diglett's Cave,Cut tree and a gatehouse. Diglett's Cave entrance on this side.
+Diglett's Cave,Cave,Route 2; Route 11,Tunnel between Route 2 and Route 11. Diglett and Dugtrio.
+Viridian Forest,Forest,Route 2 (south); Route 2 (north),Bug-type trainers and Pokemon. Pikachu can appear (FireRed/LeafGreen).
+Route 2 (north),Route,Viridian Forest; Pewter City,Leads to Pewter City.
+Pewter City,City,Route 2; Route 3,"Gym (Brock, Boulder Badge). Museum of Science."
+Route 3,Route,Pewter City; Mt. Moon,Trainers and ledges on the way to Mt. Moon.
+Mt. Moon,Cave,Route 3; Route 4,"Fossils (Helix / Dome), Moon Stones, Clefairy, Zubat."
+Route 4,Route,Mt. Moon; Cerulean City,Leads out of Mt. Moon to Cerulean.
+Cerulean City,City,Route 4; Route 5; Route 9; Route 24; Cerulean Cave,"Gym (Misty, Cascade Badge). Bike Shop. Starting point for Nugget Bridge."
+Route 24,Route,Cerulean City; Route 25,Nugget Bridge: a chain of trainers with a Nugget as the reward.
+Route 25,Route,Route 24; Bill's Sea Cottage,Leads to Bill's cottage.
+Bill's Sea Cottage,Special,Route 25,Meet Bill; reward is the S.S. Ticket.
+Cerulean Cave,Cave (post-game),Cerulean City,"Endgame cave with the strongest wild Pokemon, including Mewtwo. Needs Surf."
+Route 5,Route,Cerulean City; Saffron City; Underground Path,Pokemon Day Care is on this route.
+Underground Path,Special,Route 5 <-> Route 6; Route 7 <-> Route 8,Underground passages that link the north/south and east/west routes.
+Saffron City,City,"Routes 5, 6, 7, 8","Gym (Sabrina, Marsh Badge). Silph Co. headquarters (Team Rocket takeover). Fighting Dojo."
+Route 6,Route,Saffron City; Vermilion City,Short route south to Vermilion.
+Vermilion City,City,Route 6; Route 11,"Gym (Lt. Surge, Thunder Badge). S.S. Anne dock (HM Cut). Pokemon Fan Club."
+Route 11,Route,Vermilion City; Route 12; Diglett's Cave,Gatehouse where Oak's aide rewards Pokedex progress (Itemfinder).
+Route 7,Route,Saffron City; Celadon City,Short link between Saffron and Celadon.
+Celadon City,City,Route 7; Route 16; Rocket Hideout,"Gym (Erika, Rainbow Badge). Game Corner, Department Store, Celadon Mansion."
+Rocket Hideout,Special,Celadon Game Corner,Team Rocket base under the Game Corner. Silph Scope is found here.
+Route 8,Route,Saffron City; Lavender Town,Link between Saffron and Lavender (Underground Path entrance).
+Route 9,Route,Cerulean City; Route 10,Cut tree. Leads east to Rock Tunnel.
+Route 10,Route,Route 9; Rock Tunnel; Lavender Town; Power Plant,Rock Tunnel entrance in the north; Power Plant reached across water.
+Rock Tunnel,Cave,Route 10 (north); Route 10 (south),Dark cave; Flash makes it much easier.
+Power Plant,Cave,Route 10,Abandoned power plant. Zapdos is found here.
+Lavender Town,City,Route 8; Route 10; Route 12,"Pokemon Tower (ghost-type area), Mr. Fuji's house, Name Rater."
+Route 12,Route,Lavender Town; Route 11; Route 13,A sleeping Snorlax blocks the path until you have the Poke Flute. Fishing Guru gives the Super Rod.
+Route 13,Route,Route 12; Route 14,Coastal route heading west toward Fuchsia.
+Route 14,Route,Route 13; Route 15,Continues west.
+Route 15,Route,Route 14; Fuchsia City,Gatehouse where Oak's aide rewards more Pokedex progress (Exp. Share).
+Route 16,Route,Celadon City; Route 17,Another sleeping Snorlax blocks the way; house with HM Fly nearby.
+Route 17,Route,Route 16; Route 18,"Cycling Road: Bicycle required, fast downhill route with many trainers."
+Route 18,Route,Route 17; Fuchsia City,Southern end of Cycling Road.
+Fuchsia City,City,Route 15; Route 18; Safari Zone; Route 19,"Gym (Koga, Soul Badge). Safari Zone, Warden's house."
+Safari Zone,Special,Fuchsia City,Catch rare Pokemon with Safari Balls. Hidden items include HM Surf and HM Strength.
+Route 19,Sea route,Fuchsia City; Route 20,Surf south; many swimmer trainers.
+Route 20,Sea route,Route 19; Cinnabar Island; Seafoam Islands,Surf west; leads past the Seafoam Islands.
+Seafoam Islands,Cave,Route 20,Icy cave. Articuno is found here.
+Cinnabar Island,City,Route 20; Route 21; Pokemon Mansion,"Gym (Blaine, Volcano Badge; needs the Secret Key). Pokemon Lab (fossil revival)."
+Pokemon Mansion,Special,Cinnabar Island,Burned-down mansion. The Secret Key for the Cinnabar Gym is found here.
+Route 21,Sea route,Cinnabar Island; Pallet Town,Surf north to close the loop back to Pallet Town.

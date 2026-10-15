@@ -1,0 +1,979 @@
+{
+"dig.stone": [
+"dig_stone1",
+"dig_stone2",
+"dig_stone3",
+"dig_stone4"
+],
+"dig.wood": [
+"dig_wood1",
+"dig_wood2",
+"dig_wood3",
+"dig_wood4"
+],
+"dig.grass": [
+"dig_grass1",
+"dig_grass2",
+"dig_grass3",
+"dig_grass4"
+],
+"dig.gravel": [
+"dig_gravel1",
+"dig_gravel2",
+"dig_gravel3",
+"dig_gravel4"
+],
+"dig.sand": [
+"dig_sand1",
+"dig_sand2",
+"dig_sand3",
+"dig_sand4"
+],
+"dig.cloth": [
+"dig_cloth1",
+"dig_cloth2",
+"dig_cloth3",
+"dig_cloth4"
+],
+"dig.glass": [
+"random_glass1",
+"random_glass2",
+"random_glass3"
+],
+"step.stone": [
+"step_stone1",
+"step_stone2",
+"step_stone3",
+"step_stone4",
+"step_stone5",
+"step_stone6"
+],
+"step.wood": [
+"step_wood1",
+"step_wood2",
+"step_wood3",
+"step_wood4",
+"step_wood5",
+"step_wood6"
+],
+"step.grass": [
+"step_grass1",
+"step_grass2",
+"step_grass3",
+"step_grass4",
+"step_grass5",
+"step_grass6"
+],
+"step.gravel": [
+"step_gravel1",
+"step_gravel2",
+"step_gravel3",
+"step_gravel4"
+],
+"step.sand": [
+"step_sand1",
+"step_sand2",
+"step_sand3",
+"step_sand4",
+"step_sand5"
+],
+"step.cloth": [
+"step_cloth1",
+"step_cloth2",
+"step_cloth3",
+"step_cloth4"
+],
+"pop": [
+"random_pop"
+],
+"break": [
+"random_break"
+],
+"burp": [
+"random_burp"
+],
+"eat": [
+"random_eat1",
+"random_eat2",
+"random_eat3"
+],
+"explode": [
+"random_explode1",
+"random_explode2",
+"random_explode3",
+"random_explode4"
+],
+"fuse": [
+"random_fuse"
+],
+"orb": [
+"random_orb"
+],
+"levelup": [
+"random_levelup"
+],
+"bow": [
+"random_bow"
+],
+"bowhit": [
+"random_bowhit1",
+"random_bowhit2",
+"random_bowhit3",
+"random_bowhit4"
+],
+"door_open": [
+"random_door_open"
+],
+"door_close": [
+"random_door_close"
+],
+"chest_open": [
+"block_chest_open"
+],
+"chest_close": [
+"block_chest_close1",
+"block_chest_close2",
+"block_chest_close3"
+],
+"campfire": [
+"block_campfire_crackle1",
+"block_campfire_crackle2",
+"block_campfire_crackle3",
+"block_campfire_crackle4",
+"block_campfire_crackle5",
+"block_campfire_crackle6"
+],
+"click": [
+"random_click"
+],
+"splash": [
+"random_splash"
+],
+"fizz": [
+"random_fizz"
+],
+"drink": [
+"random_drink"
+],
+"wood_click": [
+"random_wood_click"
+],
+"hurt": [
+"damage_hit1",
+"damage_hit2",
+"damage_hit3"
+],
+"fall": [
+"damage_fallsmall"
+],
+"classic_hurt": [
+"random_classic_hurt"
+],
+"attack.strong": [
+"entity_player_attack_strong1",
+"entity_player_attack_strong2",
+"entity_player_attack_strong3",
+"entity_player_attack_strong4",
+"entity_player_attack_strong5",
+"entity_player_attack_strong6"
+],
+"attack.weak": [
+"entity_player_attack_weak1",
+"entity_player_attack_weak2",
+"entity_player_attack_weak3",
+"entity_player_attack_weak4"
+],
+"attack.crit": [
+"entity_player_attack_crit1",
+"entity_player_attack_crit2",
+"entity_player_attack_crit3"
+],
+"attack.sweep": [
+"entity_player_attack_sweep1",
+"entity_player_attack_sweep2",
+"entity_player_attack_sweep3",
+"entity_player_attack_sweep4",
+"entity_player_attack_sweep5",
+"entity_player_attack_sweep6",
+"entity_player_attack_sweep7"
+],
+"attack.knockback": [
+"entity_player_attack_knockback1",
+"entity_player_attack_knockback2",
+"entity_player_attack_knockback3",
+"entity_player_attack_knockback4"
+],
+"zombie.say": [
+"mob_zombie_say1",
+"mob_zombie_say2",
+"mob_zombie_say3"
+],
+"zombie.hurt": [
+"mob_zombie_hurt1",
+"mob_zombie_hurt2"
+],
+"zombie.death": [
+"mob_zombie_death"
+],
+"zombie.step": [
+"mob_zombie_step1",
+"mob_zombie_step2",
+"mob_zombie_step3",
+"mob_zombie_step4",
+"mob_zombie_step5"
+],
+"skeleton.say": [
+"mob_skeleton_say1",
+"mob_skeleton_say2",
+"mob_skeleton_say3"
+],
+"skeleton.hurt": [
+"mob_skeleton_hurt1",
+"mob_skeleton_hurt2",
+"mob_skeleton_hurt3",
+"mob_skeleton_hurt4"
+],
+"skeleton.death": [
+"mob_skeleton_death"
+],
+"skeleton.step": [
+"mob_skeleton_step1",
+"mob_skeleton_step2",
+"mob_skeleton_step3",
+"mob_skeleton_step4"
+],
+"creeper.hurt": [
+"mob_creeper_say1",
+"mob_creeper_say2",
+"mob_creeper_say3",
+"mob_creeper_say4"
+],
+"creeper.death": [
+"mob_creeper_death"
+],
+"spider.say": [
+"mob_spider_say1",
+"mob_spider_say2",
+"mob_spider_say3",
+"mob_spider_say4"
+],
+"spider.death": [
+"mob_spider_death"
+],
+"spider.step": [
+"mob_spider_step1",
+"mob_spider_step2",
+"mob_spider_step3",
+"mob_spider_step4"
+],
+"sheep.say": [
+"mob_sheep_say1",
+"mob_sheep_say2",
+"mob_sheep_say3"
+],
+"sheep.step": [
+"mob_sheep_step1",
+"mob_sheep_step2",
+"mob_sheep_step3",
+"mob_sheep_step4",
+"mob_sheep_step5"
+],
+"shear": [
+"mob_sheep_shear"
+],
+"cow.say": [
+"mob_cow_say1",
+"mob_cow_say2",
+"mob_cow_say3",
+"mob_cow_say4"
+],
+"cow.hurt": [
+"mob_cow_hurt1",
+"mob_cow_hurt2",
+"mob_cow_hurt3"
+],
+"cow.step": [
+"mob_cow_step1",
+"mob_cow_step2",
+"mob_cow_step3",
+"mob_cow_step4"
+],
+"pig.say": [
+"mob_pig_say1",
+"mob_pig_say2",
+"mob_pig_say3"
+],
+"pig.death": [
+"mob_pig_death"
+],
+"pig.step": [
+"mob_pig_step1",
+"mob_pig_step2",
+"mob_pig_step3",
+"mob_pig_step4",
+"mob_pig_step5"
+],
+"chicken.say": [
+"mob_chicken_say1",
+"mob_chicken_say2",
+"mob_chicken_say3"
+],
+"chicken.hurt": [
+"mob_chicken_hurt1",
+"mob_chicken_hurt2"
+],
+"chicken.plop": [
+"mob_chicken_plop"
+],
+"chicken.step": [
+"mob_chicken_step1",
+"mob_chicken_step2"
+],
+"fire": [
+"fire_fire"
+],
+"ignite": [
+"fire_ignite"
+],
+"swim": [
+"liquid_swim1",
+"liquid_swim2",
+"liquid_swim3",
+"liquid_swim4"
+],
+"water_splash": [
+"liquid_splash"
+],
+"water": [
+"liquid_water"
+],
+"bucket_fill": [
+"item_bucket_fill1",
+"item_bucket_fill2",
+"item_bucket_fill3"
+],
+"bucket_empty": [
+"item_bucket_empty1",
+"item_bucket_empty2",
+"item_bucket_empty3"
+],
+"till": [
+"item_hoe_till1",
+"item_hoe_till2",
+"item_hoe_till3",
+"item_hoe_till4"
+],
+"bonemeal": [
+"item_bonemeal_bonemeal1",
+"item_bonemeal_bonemeal2",
+"item_bonemeal_bonemeal3",
+"item_bonemeal_bonemeal4",
+"item_bonemeal_bonemeal5"
+],
+"furnace": [
+"block_furnace_fire_crackle1",
+"block_furnace_fire_crackle2",
+"block_furnace_fire_crackle3",
+"block_furnace_fire_crackle4",
+"block_furnace_fire_crackle5"
+],
+"dig.netherrack": [
+"block_netherrack_break1",
+"block_netherrack_break2",
+"block_netherrack_break3",
+"block_netherrack_break4",
+"block_netherrack_break5",
+"block_netherrack_break6"
+],
+"step.netherrack": [
+"block_netherrack_step1",
+"block_netherrack_step2",
+"block_netherrack_step3",
+"block_netherrack_step4",
+"block_netherrack_step5",
+"block_netherrack_step6"
+],
+"dig.nether_bricks": [
+"block_nether_bricks_break1",
+"block_nether_bricks_break2",
+"block_nether_bricks_break3",
+"block_nether_bricks_break4",
+"block_nether_bricks_break5",
+"block_nether_bricks_break6"
+],
+"step.nether_bricks": [
+"block_nether_bricks_step1",
+"block_nether_bricks_step2",
+"block_nether_bricks_step3",
+"block_nether_bricks_step4",
+"block_nether_bricks_step5",
+"block_nether_bricks_step6"
+],
+"dig.nether_ore": [
+"block_nether_ore_break1",
+"block_nether_ore_break2",
+"block_nether_ore_break3",
+"block_nether_ore_break4"
+],
+"step.nether_ore": [
+"block_nether_ore_step1",
+"block_nether_ore_step2",
+"block_nether_ore_step3",
+"block_nether_ore_step4",
+"block_nether_ore_step5"
+],
+"dig.soul_sand": [
+"block_soul_sand_break1",
+"block_soul_sand_break2",
+"block_soul_sand_break3",
+"block_soul_sand_break4",
+"block_soul_sand_break5",
+"block_soul_sand_break6",
+"block_soul_sand_break7",
+"block_soul_sand_break8",
+"block_soul_sand_break9"
+],
+"step.soul_sand": [
+"block_soul_sand_step1",
+"block_soul_sand_step2",
+"block_soul_sand_step3",
+"block_soul_sand_step4",
+"block_soul_sand_step5"
+],
+"dig.soul_soil": [
+"block_soul_soil_break1",
+"block_soul_soil_break2",
+"block_soul_soil_break3",
+"block_soul_soil_break4",
+"block_soul_soil_break5",
+"block_soul_soil_break6"
+],
+"step.soul_soil": [
+"block_soul_soil_step1",
+"block_soul_soil_step2",
+"block_soul_soil_step3",
+"block_soul_soil_step4",
+"block_soul_soil_step5"
+],
+"dig.bone_block": [
+"block_bone_block_break1",
+"block_bone_block_break2",
+"block_bone_block_break3",
+"block_bone_block_break4",
+"block_bone_block_break5"
+],
+"step.bone_block": [
+"block_bone_block_step1",
+"block_bone_block_step2",
+"block_bone_block_step3",
+"block_bone_block_step4",
+"block_bone_block_step5"
+],
+"dig.ancient_debris": [
+"block_ancient_debris_break1",
+"block_ancient_debris_break2",
+"block_ancient_debris_break3",
+"block_ancient_debris_break4",
+"block_ancient_debris_break5"
+],
+"step.ancient_debris": [
+"block_basalt_step1",
+"block_basalt_step2",
+"block_basalt_step3",
+"block_basalt_step4",
+"block_basalt_step5",
+"block_basalt_step6"
+],
+"dig.netherite": [
+"block_netherite_break1",
+"block_netherite_break2",
+"block_netherite_break3",
+"block_netherite_break4"
+],
+"step.netherite": [
+"block_netherite_step1",
+"block_netherite_step2",
+"block_netherite_step3",
+"block_netherite_step4",
+"block_netherite_step5",
+"block_netherite_step6"
+],
+"portal": [
+"portal_portal"
+],
+"portal_trigger": [
+"portal_trigger"
+],
+"portal_travel": [
+"portal_travel"
+],
+"lava": [
+"liquid_lava"
+],
+"lava_pop": [
+"liquid_lavapop"
+],
+"bucket_fill_lava": [
+"item_bucket_fill_lava1",
+"item_bucket_fill_lava2",
+"item_bucket_fill_lava3"
+],
+"bucket_empty_lava": [
+"item_bucket_empty_lava1",
+"item_bucket_empty_lava2",
+"item_bucket_empty_lava3"
+],
+"ghast.moan": [
+"mob_ghast_moan1",
+"mob_ghast_moan2",
+"mob_ghast_moan3",
+"mob_ghast_moan4",
+"mob_ghast_moan5",
+"mob_ghast_moan6",
+"mob_ghast_moan7"
+],
+"ghast.hurt": [
+"mob_ghast_scream1",
+"mob_ghast_scream2",
+"mob_ghast_scream3",
+"mob_ghast_scream4",
+"mob_ghast_scream5"
+],
+"ghast.scream": [
+"mob_ghast_affectionate_scream"
+],
+"ghast.warn": [
+"mob_ghast_charge"
+],
+"ghast.death": [
+"mob_ghast_death"
+],
+"fireball": [
+"mob_ghast_fireball4"
+],
+"blaze.say": [
+"mob_blaze_breathe1",
+"mob_blaze_breathe2",
+"mob_blaze_breathe3",
+"mob_blaze_breathe4"
+],
+"blaze.hurt": [
+"mob_blaze_hit1",
+"mob_blaze_hit2",
+"mob_blaze_hit3",
+"mob_blaze_hit4"
+],
+"blaze.death": [
+"mob_blaze_death"
+],
+"blaze.burn": [
+"fire_fire"
+],
+"magma_cube.jump": [
+"mob_magmacube_jump1",
+"mob_magmacube_jump2",
+"mob_magmacube_jump3",
+"mob_magmacube_jump4"
+],
+"magma_cube.squish": [
+"mob_magmacube_big1",
+"mob_magmacube_big2",
+"mob_magmacube_big3",
+"mob_magmacube_big4"
+],
+"magma_cube.squish_small": [
+"mob_magmacube_small1",
+"mob_magmacube_small2",
+"mob_magmacube_small3",
+"mob_magmacube_small4",
+"mob_magmacube_small5"
+],
+"magma_cube.hurt": [
+"mob_slime_big1",
+"mob_slime_big2",
+"mob_slime_big3",
+"mob_slime_big4"
+],
+"magma_cube.hurt_small": [
+"mob_slime_small1",
+"mob_slime_small2",
+"mob_slime_small3",
+"mob_slime_small4",
+"mob_slime_small5"
+],
+"zombified_piglin.say": [
+"mob_zombified_piglin_zpig1",
+"mob_zombified_piglin_zpig2",
+"mob_zombified_piglin_zpig3",
+"mob_zombified_piglin_zpig4"
+],
+"zombified_piglin.angry": [
+"mob_zombified_piglin_zpigangry1",
+"mob_zombified_piglin_zpigangry2",
+"mob_zombified_piglin_zpigangry3",
+"mob_zombified_piglin_zpigangry4"
+],
+"zombified_piglin.hurt": [
+"mob_zombified_piglin_zpighurt1",
+"mob_zombified_piglin_zpighurt2"
+],
+"zombified_piglin.death": [
+"mob_zombified_piglin_zpigdeath"
+],
+"wither_skeleton.say": [
+"mob_wither_skeleton_idle1",
+"mob_wither_skeleton_idle2",
+"mob_wither_skeleton_idle3"
+],
+"wither_skeleton.hurt": [
+"mob_wither_skeleton_hurt1",
+"mob_wither_skeleton_hurt2",
+"mob_wither_skeleton_hurt3",
+"mob_wither_skeleton_hurt4"
+],
+"wither_skeleton.death": [
+"mob_wither_skeleton_death1",
+"mob_wither_skeleton_death2"
+],
+"wither_skeleton.step": [
+"mob_wither_skeleton_step1",
+"mob_wither_skeleton_step2",
+"mob_wither_skeleton_step3",
+"mob_wither_skeleton_step4"
+],
+"equip_netherite": [
+"item_armor_equip_netherite1",
+"item_armor_equip_netherite2",
+"item_armor_equip_netherite3",
+"item_armor_equip_netherite4"
+],
+"nether_wastes.loop": [
+"ambient_nether_nether_wastes_ambience"
+],
+"nether_wastes.mood": [
+"ambient_nether_nether_wastes_mood1",
+"ambient_nether_nether_wastes_mood2",
+"ambient_nether_nether_wastes_mood3",
+"ambient_nether_nether_wastes_mood4",
+"ambient_nether_nether_wastes_mood5"
+],
+"nether_wastes.additions": [
+"ambient_nether_nether_wastes_addition1",
+"ambient_nether_nether_wastes_addition2",
+"ambient_nether_nether_wastes_addition3",
+"ambient_nether_nether_wastes_addition4",
+"ambient_nether_nether_wastes_addition5",
+"ambient_nether_nether_wastes_addition6",
+"ambient_nether_nether_wastes_addition7",
+"ambient_nether_nether_wastes_addition8"
+],
+"soul_sand_valley.loop": [
+"ambient_nether_soulsand_valley_ambience"
+],
+"soul_sand_valley.mood": [
+"ambient_nether_soulsand_valley_mood1",
+"ambient_nether_soulsand_valley_mood2",
+"ambient_nether_soulsand_valley_mood3",
+"ambient_nether_soulsand_valley_mood4"
+],
+"soul_sand_valley.additions": [
+"ambient_nether_soulsand_valley_whisper1",
+"ambient_nether_soulsand_valley_whisper2",
+"ambient_nether_soulsand_valley_whisper3",
+"ambient_nether_soulsand_valley_whisper4",
+"ambient_nether_soulsand_valley_whisper5",
+"ambient_nether_soulsand_valley_whisper6",
+"ambient_nether_soulsand_valley_whisper7",
+"ambient_nether_soulsand_valley_whisper8"
+],
+"enderman.say": [
+"mob_endermen_idle1",
+"mob_endermen_idle2",
+"mob_endermen_idle3",
+"mob_endermen_idle4",
+"mob_endermen_idle5"
+],
+"enderman.scream": [
+"mob_endermen_scream1",
+"mob_endermen_scream2",
+"mob_endermen_scream3",
+"mob_endermen_scream4"
+],
+"enderman.stare": [
+"mob_endermen_stare"
+],
+"enderman.hurt": [
+"mob_endermen_hit1",
+"mob_endermen_hit2",
+"mob_endermen_hit3",
+"mob_endermen_hit4"
+],
+"enderman.death": [
+"mob_endermen_death"
+],
+"enderman.portal": [
+"mob_endermen_portal",
+"mob_endermen_portal2"
+],
+"silverfish.say": [
+"mob_silverfish_say1",
+"mob_silverfish_say2",
+"mob_silverfish_say3",
+"mob_silverfish_say4"
+],
+"silverfish.hurt": [
+"mob_silverfish_hit1",
+"mob_silverfish_hit2",
+"mob_silverfish_hit3"
+],
+"silverfish.death": [
+"mob_silverfish_kill"
+],
+"silverfish.step": [
+"mob_silverfish_step1",
+"mob_silverfish_step2",
+"mob_silverfish_step3",
+"mob_silverfish_step4"
+],
+"eye_launch": [
+"entity_endereye_endereye_launch1",
+"entity_endereye_endereye_launch2"
+],
+"eye_death": [
+"entity_endereye_dead1",
+"entity_endereye_dead2"
+],
+"eye_place": [
+"block_end_portal_eyeplace1",
+"block_end_portal_eyeplace2",
+"block_end_portal_eyeplace3"
+],
+"end_portal_spawn": [
+"block_end_portal_endportal"
+],
+"pearl_throw": [
+"random_bow"
+],
+"dragon.growl": [
+"mob_enderdragon_growl1",
+"mob_enderdragon_growl2",
+"mob_enderdragon_growl3",
+"mob_enderdragon_growl4"
+],
+"dragon.wings": [
+"mob_enderdragon_wings1",
+"mob_enderdragon_wings2",
+"mob_enderdragon_wings3",
+"mob_enderdragon_wings4",
+"mob_enderdragon_wings5",
+"mob_enderdragon_wings6"
+],
+"dragon.hurt": [
+"mob_enderdragon_hit1",
+"mob_enderdragon_hit2",
+"mob_enderdragon_hit3",
+"mob_enderdragon_hit4"
+],
+"dragon.death": [
+"mob_enderdragon_end"
+],
+"dragon.shoot": [
+"mob_ghast_fireball4"
+],
+"dragon_fireball.explode": [
+"random_explode1",
+"random_explode2",
+"random_explode3",
+"random_explode4"
+],
+"crystal.explode": [
+"random_explode1",
+"random_explode2",
+"random_explode3",
+"random_explode4"
+],
+"bars_break": [
+"dig_stone1",
+"dig_stone2",
+"dig_stone3",
+"dig_stone4"
+],
+"dig.cobweb": [
+"block_cobweb_break1",
+"block_cobweb_break2",
+"block_cobweb_break3",
+"block_cobweb_break4",
+"block_cobweb_break5",
+"block_cobweb_break6"
+],
+"step.cobweb": [
+"block_cobweb_step1",
+"block_cobweb_step2",
+"block_cobweb_step3",
+"block_cobweb_step4",
+"block_cobweb_step5",
+"block_cobweb_step6"
+],
+"dig.spawner": [
+"block_spawner_break1",
+"block_spawner_break2",
+"block_spawner_break3",
+"block_spawner_break4"
+],
+"step.spawner": [
+"block_spawner_step1",
+"block_spawner_step2",
+"block_spawner_step3",
+"block_spawner_step4",
+"block_spawner_step5"
+],
+"cave": [
+"ambient_cave_cave1",
+"ambient_cave_cave2",
+"ambient_cave_cave3",
+"ambient_cave_cave4",
+"ambient_cave_cave5",
+"ambient_cave_cave6",
+"ambient_cave_cave7",
+"ambient_cave_cave8",
+"ambient_cave_cave9",
+"ambient_cave_cave10",
+"ambient_cave_cave11",
+"ambient_cave_cave12",
+"ambient_cave_cave13",
+"ambient_cave_cave14",
+"ambient_cave_cave15",
+"ambient_cave_cave16",
+"ambient_cave_cave17",
+"ambient_cave_cave18",
+"ambient_cave_cave19",
+"ambient_cave_cave20",
+"ambient_cave_cave21",
+"ambient_cave_cave22",
+"ambient_cave_cave23"
+],
+"wither.ambient": [],
+"wither.hurt": [],
+"wither.death": [],
+"wither.shoot": [],
+"wither.spawn": [],
+"wither.break_block": [
+"mob_zombie_woodbreak"
+],
+"wither_skull.explode": [
+"random_explode1",
+"random_explode2",
+"random_explode3",
+"random_explode4"
+],
+"beacon.activate": [],
+"beacon.ambient": [],
+"beacon.deactivate": [],
+"beacon.power_select": [],
+"paddle": [
+"entity_boat_paddle_water1",
+"entity_boat_paddle_water2",
+"entity_boat_paddle_water3",
+"entity_boat_paddle_water4",
+"entity_boat_paddle_water5",
+"entity_boat_paddle_water6",
+"entity_boat_paddle_water7",
+"entity_boat_paddle_water8"
+],
+"toast_in": [
+"ui_toast_in"
+],
+"toast_out": [
+"ui_toast_out"
+],
+"challenge": [
+"ui_toast_challenge_complete"
+],
+"cast": [
+"entity_bobber_castfast"
+],
+"retrieve": [
+"entity_bobber_retrieve1",
+"entity_bobber_retrieve2",
+"entity_bobber_retrieve3"
+],
+"villager.ambient": [
+"mob_villager_idle1",
+"mob_villager_idle2",
+"mob_villager_idle3"
+],
+"villager.yes": [
+"mob_villager_yes1",
+"mob_villager_yes2",
+"mob_villager_yes3"
+],
+"villager.no": [
+"mob_villager_no1",
+"mob_villager_no2",
+"mob_villager_no3"
+],
+"villager.trade": [
+"mob_villager_haggle1",
+"mob_villager_haggle2",
+"mob_villager_haggle3"
+],
+"villager.celebrate": [
+"mob_villager_yes1",
+"mob_villager_yes2",
+"mob_villager_yes3"
+],
+"villager.hurt": [
+"mob_villager_hit1",
+"mob_villager_hit2",
+"mob_villager_hit3",
+"mob_villager_hit4"
+],
+"villager.death": [
+"mob_villager_death"
+],
+"villager.work_cartographer": [
+"ui_cartography_table_drawmap1",
+"ui_cartography_table_drawmap2",
+"ui_cartography_table_drawmap3"
+],
+"villager.work_shepherd": [
+"ui_loom_take_result1",
+"ui_loom_take_result2"
+],
+"villager.work_mason": [
+"ui_stonecutter_cut1",
+"ui_stonecutter_cut2"
+],
+"iron_golem.attack": [
+"mob_irongolem_throw"
+],
+"iron_golem.hurt": [
+"mob_irongolem_hit1",
+"mob_irongolem_hit2",
+"mob_irongolem_hit3",
+"mob_irongolem_hit4"
+],
+"iron_golem.death": [
+"mob_irongolem_death"
+],
+"iron_golem.step": [
+"mob_irongolem_walk1",
+"mob_irongolem_walk2",
+"mob_irongolem_walk3",
+"mob_irongolem_walk4"
+],
+"iron_golem.repair": [
+"mob_irongolem_repair"
+],
+"iron_golem.damage": [
+"mob_irongolem_damage1",
+"mob_irongolem_damage2"
+],
+"bell.use": [
+"block_bell_bell_use01",
+"block_bell_bell_use02"
+],
+"bell.resonate": [
+"block_bell_resonate"
+]
+}

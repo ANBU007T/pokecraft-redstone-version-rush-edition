@@ -1,0 +1,62 @@
+{
+ "full": [
+  [
+   120,
+   210,
+   120,
+   40
+  ],
+  [
+   326,
+   220,
+   56,
+   40
+  ],
+  [
+   -86,
+   220,
+   184,
+   40
+  ],
+  [
+   120,
+   -62,
+   120,
+   88
+  ],
+  [
+   -70,
+   -92,
+   200,
+   88
+  ],
+  [
+   310,
+   -92,
+   40,
+   88
+  ]
+ ],
+ "half": [
+  [
+   120,
+   234,
+   120,
+   64
+  ],
+  [
+   326,
+   244,
+   56,
+   64
+  ],
+  [
+   -86,
+   244,
+   184,
+   64
+  ]
+ ],
+ "note": "per party slot: [startX, startY, endX, endY] of the front sprite centre (src/hall_of_fame.c); more than 3 POKeMON use full, else half. Text: \"Welcome to the HALL OF FAME!\" in the window at the bottom.",
+ "music": "hall_of_fame"
+}
