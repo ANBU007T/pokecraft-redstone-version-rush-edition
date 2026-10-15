@@ -12,6 +12,11 @@ Play as **Minecraft Steve in Pokémon FireRed Kanto** with complete survival mec
 
 ---
 
+> [!TIP]
+> **Looking for the legacy v1.0.1 desktop wrapper?** The previous branch is preserved at [**`main`**](https://github.com/ANBU007T/pokecraft-redstone-version-rush-edition/tree/main).
+
+---
+
 > [!IMPORTANT]
 > ### 🏆 Full Respect to the Original Creator: MozeTech
 > **PokéCRAFT (Pokémon Redstone)** was originally created, envisioned, and developed by **MozeTech** ([@mozetech on X](https://x.com/mozetech)).
