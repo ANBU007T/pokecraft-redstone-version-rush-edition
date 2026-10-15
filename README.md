@@ -139,6 +139,10 @@ A ready-to-deploy cloud relay template is included in [`relay-server/`](relay-se
 * **X (Twitter)**: [@mozetech](https://x.com/mozetech)
 * *Huge respect and gratitude to MozeTech for creating this brilliant and creative fan crossover game.*
 
+### 🤖 AI Engine & Porting Assistant
+* **Assistant**: **Antigravity 3.8 Flash (High)**
+* **Role**: 100% native Rust Bevy engine conversion, binary size optimization (84% reduction), and release packaging.
+
 ### 🛠️ Emulator & Platform Distribution (Rush Edition v1.0.1)
 * **Emulator Creator**: **ANBU007T**
 * **GitHub**: [@ANBU007T](https://github.com/ANBU007T)
