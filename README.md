@@ -91,5 +91,6 @@ cargo run --release
 ## 📜 Credits & Attribution
 * **Original Game & Concept**: **MozeTech** ([@mozetech on X](https://x.com/mozetech))
 * **Native Rust Architecture & Optimization**: **ANBU007T** ([@ANBU007T on GitHub](https://github.com/ANBU007T))
+* **AI Engine & Porting Assistant**: **Antigravity 3.8 Flash (High)**
 * **Pokémon**: © Nintendo / Creatures Inc. / GAME FREAK inc.
 * **Minecraft**: © Mojang Studios / Microsoft Corporation
